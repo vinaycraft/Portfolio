@@ -3,30 +3,57 @@ import './index.css';
 
 const App = () => {
   const skills = [
-    'Linux', 'Git', 'SQL', 'AWS', 'Jenkins', 'Docker', 
-    'Java', 'JUnit', 'Jackson', 'HTTP', 'REST', 'Mockito'
+    'C', 'C++', 'Java', 'Python', 'JavaScript', 'PHP',
+    'React.js', 'Node.js', 'Express.js', 'HTML', 'CSS',
+    'MySQL', 'REST APIs', 'Git', 'OpenCV', 'GPT', 'LangChain'
   ];
 
   const projects = [
-    { name: 'QTripDynamic', date: 'Feb 2024', type: 'main' },
-    { name: 'QTripStatic', date: 'Jan 2024', type: 'main' },
-    { name: 'XMeme', date: 'Oct 2023', type: 'main' },
-    { name: 'QEats', date: 'Sep 2023', type: 'main' },
-    { name: 'Object Modeling', date: 'Aug 2023', type: 'main' },
-    { name: 'QMoney', date: 'Jul 2023', type: 'main' },
-    { name: 'XURL', date: 'Jun 2023', type: 'main' },
-    { name: 'QCalc', date: 'Jun 2023', type: 'main' },
-    { name: 'Machine Coding - Restaurant Rating', date: 'Apr 2023', type: 'main' },
-    { name: 'Buildout Machine Coding Jukebox', date: 'Apr 2023', type: 'main' },
-    { name: 'QContest', date: 'Apr 2023', type: 'main' },
-    { name: 'XCompany', date: 'Mar 2023', type: 'main' }
+    {
+      name: 'PersonaAI - Human Behavior Modeling System',
+      date: 'Ongoing',
+      description: 'Developing an AI-based digital twin system capable of modeling human personality and behavior patterns. Implementing personality profiling using psychological models like MBTI and Big Five. Integrating vector embeddings to create long-term memory for AI interactions.',
+      technologies: ['GPT', 'LangChain', 'Vector Database', 'AI Conversation', 'Personality Analysis']
+    },
+    {
+      name: 'Stranger Meet - Anonymous Video Chat Platform',
+      date: '2023-24',
+      description: 'Built an Omegle-style platform allowing anonymous communication between users. Developed a streak feature to increase user engagement and platform retention. Implemented college email verification system to restrict users based on institutional domains.',
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL']
+    },
+    {
+      name: 'Central Order Management System',
+      date: '2024-25',
+      description: 'Developed a centralized system to manage orders across multiple food court vendors. Implemented backend APIs for order processing, tracking, and status updates. Designed database schema for efficient storage and retrieval of order data.',
+      technologies: ['PHP', 'MySQL', 'REST APIs']
+    },
+    {
+      name: 'Instagram Auto Posting System',
+      date: '2023-24',
+      description: 'Developed a bot to automate Instagram post scheduling and publishing. Designed a system to store media data in spreadsheets and automatically upload posts at scheduled times. Reduced manual effort in content publishing through automation scripts.',
+      technologies: ['Python', 'Automation', 'Scheduling']
+    },
+    {
+      name: 'Virtual Mouse Using Computer Vision',
+      date: '2022-23',
+      description: 'Implemented a computer vision-based virtual mouse controlled by hand gestures. Used real-time webcam input to detect finger positions and convert them into cursor movements. Enabled actions like clicking and scrolling using gesture recognition.',
+      technologies: ['Python', 'OpenCV']
+    },
+    {
+      name: 'AI Assistant',
+      date: '2025-26',
+      description: 'Built a Python-based AI assistant capable of executing system commands and answering user queries. Integrated speech recognition and text processing for interactive communication. Automated tasks such as opening applications, searching the web, and retrieving information.',
+      technologies: ['Python', 'NLP', 'Automation']
+    }
   ];
 
   const miniProjects = [
-    { name: 'Advanced Docker Operations', date: 'May 2023', type: 'mini' },
-    { name: 'Docker Container Fundamentals', date: 'May 2023', type: 'mini' },
-    { name: 'CI/CD pipeline with Jenkins', date: 'May 2023', type: 'mini' },
-    { name: 'CRUD with SQL', date: 'Mar 2023', type: 'mini' }
+    {
+      name: 'Wedding Invitation Website',
+      date: '2025-26',
+      description: 'Built a responsive wedding invitation website with countdown timer and multimedia gallery. Integrated Google Maps for location navigation. Designed mobile-friendly UI to share event details with guests.',
+      technologies: ['JavaScript', 'HTML', 'CSS']
+    }
   ];
 
   const scrollToSection = (sectionId) => {
@@ -56,8 +83,17 @@ const App = () => {
         <section id="top" className="hero">
           <h1>Vinay Patil</h1>
           <p>
-            I have built many industry grade projects from scratch and am armed with many technological skills useful for tech projects. Check out my projects below. :)
+            Passionate full-stack developer and AI enthusiast with expertise in building innovative web applications and intelligent systems. 
+            Specialized in React.js, Node.js, Python, and emerging AI technologies. Check out my projects below. :)
           </p>
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="mailto:vinay100876@gmail.com" className="github-link" style={{ textDecoration: 'none' }}>
+              📧 vinay100876@gmail.com
+            </a>
+            <a href="tel:+91-7263060086" className="github-link" style={{ textDecoration: 'none' }}>
+              📱 +91-7263060086
+            </a>
+          </div>
         </section>
 
         <section id="skills" className="section">
@@ -79,7 +115,20 @@ const App = () => {
                 <h3>{project.name}</h3>
                 <div className="date">{project.date}</div>
                 <div className="description">
-                  Professional project demonstrating industry-level development skills and best practices.
+                  {project.description}
+                </div>
+                <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} style={{ 
+                      background: '#f0f0f0', 
+                      padding: '0.25rem 0.5rem', 
+                      borderRadius: '12px', 
+                      fontSize: '0.8rem',
+                      color: '#666'
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
@@ -94,7 +143,20 @@ const App = () => {
                 <h3>{project.name}</h3>
                 <div className="date">{project.date}</div>
                 <div className="description">
-                  Focused learning project to strengthen specific technical skills and concepts.
+                  {project.description}
+                </div>
+                <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {project.technologies.map((tech, techIndex) => (
+                    <span key={techIndex} style={{ 
+                      background: '#f0f0f0', 
+                      padding: '0.25rem 0.5rem', 
+                      borderRadius: '12px', 
+                      fontSize: '0.8rem',
+                      color: '#666'
+                    }}>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
@@ -102,18 +164,32 @@ const App = () => {
         </section>
 
         <section id="github" className="section github-section">
-          <h2>GitHub Contributions</h2>
+          <h2>Get In Touch</h2>
           <p style={{ marginBottom: '1rem', color: '#666' }}>
-            Check out my GitHub profile to see my contributions and project repositories.
+            Feel free to reach out for collaborations, opportunities, or just to connect!
           </p>
-          <a 
-            href="https://github.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="github-link"
-          >
-            View GitHub Profile
-          </a>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href="https://github.com/vinaycraft" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="github-link"
+            >
+              🚀 GitHub Profile
+            </a>
+            <a 
+              href="mailto:vinay100876@gmail.com" 
+              className="github-link"
+            >
+              📧 Send Email
+            </a>
+            <a 
+              href="tel:+91-7263060086" 
+              className="github-link"
+            >
+              📱 Call Me
+            </a>
+          </div>
         </section>
       </div>
     </div>
