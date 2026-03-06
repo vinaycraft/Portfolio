@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import profileImage from './assets/profile.jpg';
+import profileImage from './assets/profile.png';
 
 const App = () => {
   const skills = [
