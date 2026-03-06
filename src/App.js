@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import profileImage from './assets/profile.jpg';
 
 const App = () => {
   const skills = [
@@ -81,6 +82,20 @@ const App = () => {
 
       <div className="container">
         <section id="top" className="hero">
+          <div style={{ marginBottom: '2rem' }}>
+            <img 
+              src={profileImage} 
+              alt="Vinay Patil" 
+              style={{ 
+                width: '150px', 
+                height: '150px', 
+                borderRadius: '50%', 
+                objectFit: 'cover',
+                border: '4px solid #fff',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+              }}
+            />
+          </div>
           <h1>Vinay Patil</h1>
           <p>
             Passionate full-stack developer and AI enthusiast with expertise in building innovative web applications and intelligent systems. 
