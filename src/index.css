@@ -256,6 +256,10 @@ body.dark-mode .nav-logo {
   transition: all 0.3s ease;
 }
 
+body.dark-mode .mobile-menu-toggle span {
+  background: #ffffff;
+}
+
 .mobile-menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -309,15 +313,15 @@ body.dark-mode .nav-logo {
 }
 
 body.dark-mode .nav-links a {
-  color: var(--white);
+  color: #ffffff !important;
 }
 
 body.dark-mode .nav-links a:hover {
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 
 body.dark-mode .nav-links a.active {
-  color: var(--accent);
+  color: var(--accent) !important;
 }
 
 .nav-links li:last-child {
@@ -326,7 +330,7 @@ body.dark-mode .nav-links a.active {
 
 .nav-cta {
   background: var(--accent);
-  color: var(--white) !important;
+  color: #ffffff !important;
   padding: 0.8rem 1.5rem;
   border-radius: 0;
   font-weight: 700 !important;
