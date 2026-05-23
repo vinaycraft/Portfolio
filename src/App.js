@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import profileImage from './assets/profile.png';
 
 const App = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('top');
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const skills = [
     'JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP',
     'React.js', 'HTML5', 'CSS3', 'Bootstrap',
@@ -94,24 +98,110 @@ const App = () => {
     }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Update scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(progress);
+
+      // Show/hide back to top button
+      setShowBackToTop(scrollTop > 500);
+
+      // Update active section based on scroll position
+      const sections = ['top', 'skills', 'projects', 'experience', 'education', 'contact'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => observer.observe(section));
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+    };
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Height of fixed navigation
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <div className="App">
+      {/* Scroll Progress Bar */}
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
+          ↑
+        </button>
+      )}
+
       <nav>
         <div className="nav-logo">VP</div>
-        <ul className="nav-links">
-          <li><a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection('top'); }}>Home</a></li>
-          <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
-          <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a></li>
-          <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>Experience</a></li>
-          <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>Education</a></li>
-          <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-cta">Contact →</a></li>
+        <button 
+          className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+          <li><a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection('top'); }} className={activeSection === 'top' ? 'active' : ''}>Home</a></li>
+          <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }} className={activeSection === 'skills' ? 'active' : ''}>Skills</a></li>
+          <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
+          <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
+          <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
+          <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className={`nav-cta ${activeSection === 'contact' ? 'active' : ''}`}>Contact →</a></li>
         </ul>
       </nav>
 
@@ -284,6 +374,25 @@ const App = () => {
             </a>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-left">
+              <h3>Vinay Patil</h3>
+              <p>Full Stack Developer & AI Enthusiast</p>
+            </div>
+            <div className="footer-right">
+              <div className="footer-social">
+                <a href="https://github.com/vinaycraft" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://leetcode.com" target="_blank" rel="noopener noreferrer">LeetCode</a>
+                <a href="mailto:vinay100876@gmail.com">Email</a>
+              </div>
+              <p className="footer-copyright">© 2026 Vinay Patil. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
