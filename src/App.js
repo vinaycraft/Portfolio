@@ -251,7 +251,7 @@ const App = () => {
                 <div className="skills-grid">
                   {categorySkills.map((skill, index) => (
                     <div key={index} className="skill-badge">
-                      {skill}
+                      <span>{skill}</span>
                     </div>
                   ))}
                 </div>
