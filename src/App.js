@@ -67,49 +67,51 @@ const App = () => {
   return (
     <div className="App">
       <nav>
-        <div className="nav-container">
-          <div className="nav-logo">
-            <h3 style={{ margin: 0, color: '#667eea' }}>Portfolio</h3>
-          </div>
-          <ul className="nav-links">
-            <li><a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection('top'); }}>Home</a></li>
-            <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
-            <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a></li>
-            <li><a href="#github" onClick={(e) => { e.preventDefault(); scrollToSection('github'); }}>GitHub</a></li>
-          </ul>
-        </div>
+        <div className="nav-logo">VP</div>
+        <ul className="nav-links">
+          <li><a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection('top'); }}>Home</a></li>
+          <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
+          <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a></li>
+          <li><a href="#github" onClick={(e) => { e.preventDefault(); scrollToSection('github'); }} className="nav-cta">Contact Me →</a></li>
+        </ul>
       </nav>
 
-      <div className="container">
-        <section id="top" className="hero">
-          <div style={{ marginBottom: '2rem' }}>
+      <section id="top" className="hero">
+        <div className="vertical-text">Full Stack Developer</div>
+        <div className="hero-container">
+          <div className="hero-left">
+            <div className="hero-stats">
+              <div className="stat-item">
+                <div className="stat-number">+6</div>
+                <div className="stat-label">Projects Completed</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">+17</div>
+                <div className="stat-label">Technologies</div>
+              </div>
+            </div>
+            <div className="hero-greeting">
+              <h1>Hello</h1>
+              <p className="subtitle">
+                It's Vinay Patil, a passionate full-stack developer and AI enthusiast with expertise in building innovative web applications and intelligent systems.
+              </p>
+            </div>
+          </div>
+          <div className="hero-right">
             <img 
               src={profileImage} 
               alt="Vinay Patil" 
-              style={{ 
-                width: '150px', 
-                height: '150px', 
-                borderRadius: '50%', 
-                objectFit: 'cover',
-                border: '4px solid #fff',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
-              }}
+              className="hero-image"
             />
           </div>
-          <h1>Vinay Patil</h1>
-          <p>
-            Passionate full-stack developer and AI enthusiast with expertise in building innovative web applications and intelligent systems. 
-            Specialized in React.js, Node.js, Python, and emerging AI technologies. Check out my projects below. :)
-          </p>
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="mailto:vinay100876@gmail.com" className="github-link" style={{ textDecoration: 'none' }}>
-              📧 vinay100876@gmail.com
-            </a>
-            <a href="tel:+91-7263060086" className="github-link" style={{ textDecoration: 'none' }}>
-              📱 +91-7263060086
-            </a>
-          </div>
-        </section>
+        </div>
+        <div className="scroll-indicator">
+          <span>Scroll down</span>
+          <span className="arrow">↓</span>
+        </div>
+      </section>
+
+      <div className="container">
 
         <section id="skills" className="section">
           <h2>Skills Acquired</h2>
@@ -135,11 +137,12 @@ const App = () => {
                 <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} style={{ 
-                      background: '#f0f0f0', 
-                      padding: '0.25rem 0.5rem', 
-                      borderRadius: '12px', 
-                      fontSize: '0.8rem',
-                      color: '#666'
+                      background: '#F8F8F8', 
+                      padding: '0.4rem 0.8rem', 
+                      borderRadius: '8px', 
+                      fontSize: '0.85rem',
+                      color: '#222222',
+                      fontWeight: '500'
                     }}>
                       {tech}
                     </span>
@@ -163,11 +166,12 @@ const App = () => {
                 <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} style={{ 
-                      background: '#f0f0f0', 
-                      padding: '0.25rem 0.5rem', 
-                      borderRadius: '12px', 
-                      fontSize: '0.8rem',
-                      color: '#666'
+                      background: '#F8F8F8', 
+                      padding: '0.4rem 0.8rem', 
+                      borderRadius: '8px', 
+                      fontSize: '0.85rem',
+                      color: '#222222',
+                      fontWeight: '500'
                     }}>
                       {tech}
                     </span>
@@ -180,7 +184,7 @@ const App = () => {
 
         <section id="github" className="section github-section">
           <h2>Get In Touch</h2>
-          <p style={{ marginBottom: '1rem', color: '#666' }}>
+          <p style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
             Feel free to reach out for collaborations, opportunities, or just to connect!
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -190,19 +194,19 @@ const App = () => {
               rel="noopener noreferrer"
               className="github-link"
             >
-              🚀 GitHub Profile
+              GitHub Profile
             </a>
             <a 
               href="mailto:vinay100876@gmail.com" 
               className="github-link"
             >
-              📧 Send Email
+              Send Email
             </a>
             <a 
               href="tel:+91-7263060086" 
               className="github-link"
             >
-              📱 Call Me
+              Call Me
             </a>
           </div>
         </section>
