@@ -81,7 +81,8 @@ const App = () => {
       category: 'Full Stack',
       status: 'Completed',
       description: 'Developed a real-time voice recording application with physics-based bubble animations, audio playback, and MongoDB storage. Features include recording limits, bubble expiration, and Matter.js physics simulation.',
-      technologies: ['React', 'React Router DOM', 'Express.js', 'MongoDB', 'Mongoose', 'Multer', 'Matter.js', 'CSS Animations']
+      technologies: ['React', 'React Router DOM', 'Express.js', 'MongoDB', 'Mongoose', 'Multer', 'Matter.js', 'CSS Animations'],
+      liveUrl: 'https://voice-bubble.vercel.app/'
     },
     {
       name: 'P2P Video Chat',
@@ -89,7 +90,8 @@ const App = () => {
       category: 'Full Stack',
       status: 'Completed',
       description: 'Built a peer-to-peer video chat platform using WebRTC for direct video/audio communication. Features a signaling server for WebRTC connection establishment, room-based chat, and supports up to 2 users per room.',
-      technologies: ['React', 'Node.js', 'WebRTC', 'WebSocket', 'Express.js']
+      technologies: ['React', 'Node.js', 'WebRTC', 'WebSocket', 'Express.js'],
+      liveUrl: 'https://p-to-p-vchat.vercel.app/'
     },
     {
       name: 'Institute Management System',
@@ -105,7 +107,8 @@ const App = () => {
       category: 'Web Development',
       status: 'Completed',
       description: 'Developed an interactive map-based game built with React Create React App template.',
-      technologies: ['React', 'JavaScript', 'CSS']
+      technologies: ['React', 'JavaScript', 'CSS'],
+      liveUrl: 'https://map-war.vercel.app/'
     },
     {
       name: 'Digital Invitation System 2.0',
@@ -113,7 +116,8 @@ const App = () => {
       category: 'Web Development',
       status: 'Completed',
       description: 'Built a modern digital invitation platform using React Create React App template for event invitations.',
-      technologies: ['React', 'JavaScript', 'CSS']
+      technologies: ['React', 'JavaScript', 'CSS'],
+      liveUrl: 'https://invitation-2-0.vercel.app/'
     },
     {
       name: 'Night Club - Night Food Delivery Service',
@@ -505,10 +509,10 @@ const App = () => {
                 </div>
                 <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0 2rem 2rem' }}>
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="mono" style={{ 
-                      background: '#FFFFFF', 
-                      padding: '0.4rem 0.8rem', 
-                      borderRadius: '0', 
+                    <span key={techIndex} className="mono" style={{
+                      background: '#FFFFFF',
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: '0',
                       fontSize: '0.8rem',
                       color: '#000000',
                       fontWeight: '500',
@@ -518,6 +522,32 @@ const App = () => {
                     </span>
                   ))}
                 </div>
+                {project.liveUrl && (
+                  <div style={{ padding: '0 2rem 2rem' }}>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.6rem 1.2rem',
+                        background: '#E63946',
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        borderRadius: '0',
+                        fontWeight: '600',
+                        fontSize: '0.9rem',
+                        transition: 'all 0.3s ease',
+                        border: '2px solid #E63946'
+                      }}
+                      className="project-live-btn"
+                    >
+                      Live Demo →
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>
