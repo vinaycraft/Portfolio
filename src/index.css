@@ -183,15 +183,15 @@ body.dark-mode nav {
   background: var(--white);
   border: 2px solid var(--border);
   border-radius: 0;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm);
   cursor: pointer;
-  font-size: var(--font-lg);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
+  color: var(--primary);
 }
 
 .dark-mode-toggle:hover {
@@ -199,6 +199,7 @@ body.dark-mode nav {
   border-color: var(--accent);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+  color: var(--white);
 }
 
 .dark-mode-toggle:focus-visible {
@@ -209,11 +210,13 @@ body.dark-mode nav {
 body.dark-mode .dark-mode-toggle {
   background: var(--tertiary);
   border-color: var(--border);
+  color: var(--white);
 }
 
 body.dark-mode .dark-mode-toggle:hover {
   background: var(--accent);
   border-color: var(--accent);
+  color: var(--white);
 }
 
 .nav-logo {

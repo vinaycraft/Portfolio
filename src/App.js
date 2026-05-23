@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import './index.css';
 import profileImage from './assets/profile.png';
 
@@ -264,7 +265,7 @@ const App = () => {
               onClick={toggleDarkMode}
               aria-label="Toggle dark mode"
             >
-              {darkMode ? '☀' : '🌙'}
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </li>
         </ul>
