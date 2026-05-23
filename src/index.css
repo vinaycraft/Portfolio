@@ -41,6 +41,16 @@
   --font-5xl: 3rem;       /* 48px */
 }
 
+/* Dark Mode */
+body.dark-mode {
+  --primary: #FFFFFF;
+  --secondary: #B0B0B0;
+  --tertiary: #1A1A1A;
+  --white: #121212;
+  --accent: #E63946;
+  --border: #333333;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -160,6 +170,28 @@ nav {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
+}
+
+.dark-mode-toggle {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: var(--space-sm) var(--space-md);
+  cursor: pointer;
+  font-size: var(--font-lg);
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1001;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.dark-mode-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .nav-logo {
@@ -991,6 +1023,36 @@ nav {
   text-align: center;
   font-weight: 600;
   border: 1px solid #2E7D32;
+}
+
+/* Project Filter Buttons */
+.filter-btn {
+  background: var(--tertiary);
+  color: var(--primary);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.filter-btn:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
+}
+
+.filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Footer */
