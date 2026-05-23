@@ -7,48 +7,62 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const skills = [
-    'JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP',
-    'React.js', 'HTML5', 'CSS3', 'Bootstrap',
-    'Node.js', 'Express.js', 'RESTful APIs',
-    'MySQL', 'Git', 'GitHub', 'VS Code',
-    'Cursor', 'Windsurf', 'Claude Code', 'LangChain', 'OpenCV'
-  ];
+
+  const skills = {
+    'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
+    'Frontend': ['React.js', 'HTML5', 'CSS3', 'Bootstrap'],
+    'Backend': ['Node.js', 'Express.js', 'RESTful APIs'],
+    'Database': ['MySQL'],
+    'Tools': ['Git', 'GitHub', 'VS Code'],
+    'AI/ML': ['Cursor', 'Windsurf', 'Claude Code', 'LangChain', 'OpenCV']
+  };
 
   const projects = [
     {
       name: 'PersonaAI - Human Behavior Modeling System',
       date: 'Ongoing',
+      category: 'AI/ML',
+      status: 'In Development',
       description: 'Architecting an AI-driven digital twin platform leveraging LangChain to model human personality frameworks and simulate dynamic behavioral patterns. Engineering an algorithmic profiling module that maps conversational inputs to psychological frameworks, including MBTI and the Big Five models. Implementing vector embeddings and semantic search to establish a long-term memory layer.',
       technologies: ['Python', 'GPT', 'LangChain', 'ChromaDB', 'Pinecone', 'NLP']
     },
     {
       name: 'Stranger Meet - Anonymous Video Chat Platform',
       date: '2023-24',
+      category: 'Full Stack',
+      status: 'Completed',
       description: 'Developed a full-stack, real-time anonymous video streaming platform processing peer-to-peer communication with minimal latency. Built a secure institutional email verification gate using regex and custom token routing, restricting access strictly to authorized university domains. Engineered an engagement-focused retention system featuring user streaks and dynamic database counters.',
       technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'WebRTC', 'Socket.io']
     },
     {
       name: 'Central Order Management System',
       date: '2024-25',
+      category: 'Backend',
+      status: 'Completed',
       description: 'Designed and deployed a centralized multi-tenant order management system, streamlining concurrent transactional workflows across multiple food vendors. Constructed robust backend RESTful APIs for asynchronous order processing, live state updates, and real-time tracking. Optimized a relational MySQL schema with primary/foreign key indexing and normalization rules.',
       technologies: ['PHP', 'MySQL', 'REST APIs', 'Bootstrap']
     },
     {
       name: 'Virtual Mouse Using Computer Vision',
       date: '2022-23',
+      category: 'AI/ML',
+      status: 'Completed',
       description: 'Built an AI-driven perceptual computing system that maps real-time human hand gestures to hardware cursor controls powered by a standard webcam input. Programmed mathematical coordinate mapping to smoothly translate detected finger coordinates into pixel-perfect screen pointer movements. Implemented algorithmic gesture recognition using custom frame-differencing logic.',
       technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy']
     },
     {
       name: 'Instagram Auto Posting System',
       date: '2023-24',
+      category: 'Automation',
+      status: 'Completed',
       description: 'Developed a Python automation script harnessing scheduling libraries and spreadsheet APIs to handle automated asset queues, reducing manual content overhead.',
       technologies: ['Python', 'Automation', 'Scheduling']
     },
     {
       name: 'AI Desktop Assistant',
       date: '2025-26',
+      category: 'AI/ML',
+      status: 'Completed',
       description: 'Programmed a Python system assistant utilizing speech-to-text NLP libraries to interpret voice commands, automate local system scripts, and query external web APIs.',
       technologies: ['Python', 'NLP', 'Automation']
     }
@@ -244,10 +258,17 @@ const App = () => {
 
         <section id="skills" className="section">
           <h2>Skills Acquired</h2>
-          <div className="skills-grid">
-            {skills.map((skill, index) => (
-              <div key={index} className="skill-badge">
-                {skill}
+          <div className="skills-container">
+            {Object.entries(skills).map(([category, categorySkills]) => (
+              <div key={category} className="skill-category">
+                <h3 className="skill-category-title">{category}</h3>
+                <div className="skills-grid">
+                  {categorySkills.map((skill, index) => (
+                    <div key={index} className="skill-badge">
+                      {skill}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
@@ -258,7 +279,15 @@ const App = () => {
           <div className="projects-grid">
             {projects.map((project, index) => (
               <div key={index} className="project-card">
-                <h3>{project.name}</h3>
+                <div className="project-header">
+                  <h3>{project.name}</h3>
+                  <div className="project-badges">
+                    <span className="project-category-badge mono">{project.category}</span>
+                    <span className={`project-status-badge ${project.status === 'In Development' ? 'ongoing' : 'completed'}`}>
+                      {project.status === 'In Development' ? '🔧 In Development' : '✓ Completed'}
+                    </span>
+                  </div>
+                </div>
                 <div className="date">{project.date}</div>
                 <div className="description">
                   {project.description}
@@ -286,22 +315,21 @@ const App = () => {
           <h2>Experience</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
             {experience.map((exp, index) => (
-              <div key={index} style={{ borderBottom: index !== experience.length - 1 ? '1px solid #F8F8F8' : 'none', paddingBottom: index !== experience.length - 1 ? '2rem' : '0' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <div key={index} className="experience-item">
+                <div className="experience-header">
                   <div>
-                    <h3 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#222222', marginBottom: '0.5rem' }}>{exp.title}</h3>
-                    <p style={{ color: '#7B7B7B', fontSize: '1rem', marginBottom: '0.25rem' }}>{exp.company}</p>
-                    <p style={{ color: '#7B7B7B', fontSize: '0.9rem' }}>{exp.location}</p>
+                    <h3 className="experience-title">{exp.title}</h3>
+                    <p className="experience-company">{exp.company}</p>
+                    <p className="experience-location">{exp.location}</p>
                   </div>
                   <div style={{ textAlign: 'right' }}>
-                    <p style={{ color: '#222222', fontWeight: '500', fontSize: '0.95rem' }}>{exp.period}</p>
-                    {exp.duration && <p style={{ color: '#7B7B7B', fontSize: '0.85rem' }}>{exp.duration}</p>}
+                    <p className="experience-period">{exp.period}</p>
+                    {exp.duration && <p style={{ color: '#7B7B7B', fontSize: '0.85rem', marginTop: '0.25rem' }}>{exp.duration}</p>}
                   </div>
                 </div>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                <ul className="experience-description">
                   {exp.description.map((desc, descIndex) => (
-                    <li key={descIndex} style={{ color: '#7B7B7B', lineHeight: '1.7', marginBottom: '0.5rem', paddingLeft: '1.2rem', position: 'relative' }}>
-                      <span style={{ position: 'absolute', left: '0', color: '#222222' }}>•</span>
+                    <li key={descIndex}>
                       {desc}
                     </li>
                   ))}
