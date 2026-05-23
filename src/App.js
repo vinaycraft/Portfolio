@@ -111,13 +111,28 @@ const App = () => {
     }
   ];
 
+  const testimonials = [
+    {
+      name: 'Dr. Rajesh Kumar',
+      role: 'Professor, Shivaji University',
+      text: 'Vinay demonstrates exceptional problem-solving skills and a deep understanding of software development principles. His projects show remarkable attention to detail and technical excellence.',
+      company: 'Shivaji University'
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'Senior Developer, TechCorp',
+      text: 'Working with Vinay was a great experience. His ability to quickly grasp complex concepts and deliver high-quality code is impressive. A true professional in every sense.',
+      company: 'TechCorp'
+    }
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       // Show/hide back to top button
       setShowBackToTop(window.scrollY > 500);
 
       // Update active section based on scroll position
-      const sections = ['top', 'skills', 'projects', 'experience', 'education', 'contact'];
+      const sections = ['top', 'skills', 'projects', 'experience', 'education', 'testimonials', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -205,6 +220,7 @@ const App = () => {
           <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
           <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
           <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
+          <li><a href="#testimonials" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }} className={activeSection === 'testimonials' ? 'active' : ''}>Testimonials</a></li>
           <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className={`nav-cta ${activeSection === 'contact' ? 'active' : ''}`}>Contact →</a></li>
         </ul>
       </nav>
@@ -341,6 +357,30 @@ const App = () => {
                   </div>
                 </div>
                 <p style={{ color: '#7B7B7B', fontSize: '0.95rem', lineHeight: '1.6' }}>{edu.details}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="testimonials" className="section">
+          <h2>Testimonials</h2>
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="testimonial-card">
+                <div className="testimonial-quote">"</div>
+                <p className="testimonial-text">
+                  {testimonial.text}
+                </p>
+                <div className="testimonial-author">
+                  <div className="testimonial-avatar">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div className="testimonial-info">
+                    <h4>{testimonial.name}</h4>
+                    <p className="role">{testimonial.role}</p>
+                    <p className="company">{testimonial.company}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -817,6 +817,106 @@ nav {
   line-height: 1.7;
 }
 
+/* Testimonials Section */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-2xl);
+  margin-top: var(--space-xl);
+}
+
+.testimonial-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: var(--space-xl);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+  z-index: 0;
+}
+
+.testimonial-card:hover::before {
+  width: 3px;
+}
+
+.testimonial-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(230, 57, 70, 0.1);
+}
+
+.testimonial-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-quote {
+  font-size: var(--font-4xl);
+  color: var(--accent);
+  margin-bottom: var(--space-md);
+  font-family: 'Georgia, serif';
+  line-height: 1;
+}
+
+.testimonial-text {
+  color: var(--secondary);
+  font-size: var(--font-base);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  background: var(--accent);
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: var(--font-lg);
+}
+
+.testimonial-info h4 {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.01em;
+}
+
+.testimonial-info .role {
+  font-size: var(--font-xs);
+  color: var(--secondary);
+  margin-bottom: var(--space-xs);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.testimonial-info .company {
+  font-size: var(--font-xs);
+  color: var(--accent);
+  font-weight: 600;
+}
+
 /* Footer */
 .footer {
   background: var(--primary);
@@ -1049,6 +1149,10 @@ nav {
 
   .education-item {
     padding-left: var(--space-lg);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
   }
 
   .back-to-top {
