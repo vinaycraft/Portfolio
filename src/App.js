@@ -358,6 +358,28 @@ const App = () => {
               <p className="subtitle">
                 It's Vinay Patil, a performance-driven Software Developer with hands-on experience building full-stack web applications, intelligent automation scripts, and computer vision systems. Proficient in React.js, Node.js, Python, and MySQL. Active open-source contributor with 18+ GitHub repositories.
               </p>
+              <a 
+                href="/Vinay_Patil_Soft_Dev.pdf" 
+                download 
+                className="resume-download-btn"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.875rem 2rem',
+                  background: '#E63946',
+                  color: '#FFFFFF',
+                  textDecoration: 'none',
+                  borderRadius: '0',
+                  fontWeight: '700',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
+                  border: '2px solid #E63946',
+                  marginTop: '1.5rem'
+                }}
+              >
+                Download Resume
+              </a>
             </div>
           </div>
           <div className="hero-right">
