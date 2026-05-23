@@ -13,7 +13,7 @@ const App = () => {
     message: ''
   });
   const [formStatus, setFormStatus] = useState('idle');
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [filterCategory, setFilterCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
