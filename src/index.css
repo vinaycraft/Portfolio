@@ -426,7 +426,7 @@ body.dark-mode .hero {
 
 .hero-stats {
   display: flex;
-  gap: var(--space-3xl);
+  gap: var(--space-2xl);
   margin-top: var(--space-md);
 }
 

@@ -19,11 +19,11 @@ const App = () => {
 
   const skills = {
     'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
-    'Frontend': ['React.js', 'HTML5', 'CSS3', 'Bootstrap'],
-    'Backend': ['Node.js', 'Express.js', 'RESTful APIs'],
-    'Database': ['MySQL'],
-    'Tools': ['Git', 'GitHub', 'VS Code'],
-    'AI/ML': ['Cursor', 'Windsurf', 'Claude Code', 'LangChain', 'OpenCV']
+    'Frontend': ['React.js', 'React Router DOM', 'HTML5', 'CSS3', 'CSS Animations', 'Bootstrap'],
+    'Backend': ['Node.js', 'Express.js', 'RESTful APIs', 'WebSocket', 'WebRTC'],
+    'Database': ['MySQL', 'MongoDB', 'Mongoose'],
+    'Tools & Libraries': ['Git', 'GitHub', 'VS Code', 'Multer', 'Matter.js', 'Socket.io'],
+    'AI/ML': ['Cursor', 'Windsurf', 'Claude Code', 'LangChain', 'OpenCV', 'MediaPipe', 'NLP']
   };
 
   const projects = [
@@ -341,18 +341,22 @@ const App = () => {
           <div className="hero-left">
             <div className="hero-stats">
               <div className="stat-item">
-                <div className="stat-number">+6</div>
+                <div className="stat-number">+14</div>
                 <div className="stat-label">Projects Completed</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">+17</div>
+                <div className="stat-number">+18</div>
+                <div className="stat-label">GitHub Repositories</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">+25</div>
                 <div className="stat-label">Technologies</div>
               </div>
             </div>
             <div className="hero-greeting">
               <h1>Hello</h1>
               <p className="subtitle">
-                It's Vinay Patil, a performance-driven Software Developer with hands-on experience building full-stack web applications, intelligent automation scripts, and computer vision systems. Proficient in React.js, Node.js, Python, and MySQL.
+                It's Vinay Patil, a performance-driven Software Developer with hands-on experience building full-stack web applications, intelligent automation scripts, and computer vision systems. Proficient in React.js, Node.js, Python, and MySQL. Active open-source contributor with 18+ GitHub repositories.
               </p>
             </div>
           </div>
