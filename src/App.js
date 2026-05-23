@@ -74,6 +74,70 @@ const App = () => {
       status: 'Completed',
       description: 'Programmed a Python system assistant utilizing speech-to-text NLP libraries to interpret voice commands, automate local system scripts, and query external web APIs.',
       technologies: ['Python', 'NLP', 'Automation']
+    },
+    {
+      name: 'Voice Bubble - Real-time Voice Chat Application',
+      date: '2024',
+      category: 'Full Stack',
+      status: 'Completed',
+      description: 'Developed a real-time voice chat application enabling users to communicate through voice messages with instant delivery and playback functionality.',
+      technologies: ['React.js', 'Node.js', 'Socket.io', 'Web Audio API']
+    },
+    {
+      name: 'P2P Video Chat',
+      date: '2024',
+      category: 'Full Stack',
+      status: 'Completed',
+      description: 'Built a peer-to-peer video chat platform allowing direct video communication between users without intermediate servers.',
+      technologies: ['React.js', 'WebRTC', 'Node.js', 'Socket.io']
+    },
+    {
+      name: 'Institute Management System',
+      date: '2024',
+      category: 'Full Stack',
+      status: 'Completed',
+      description: 'Created a comprehensive institute management system handling student records, attendance, grades, and administrative tasks.',
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB']
+    },
+    {
+      name: 'Map War - Interactive Map Game',
+      date: '2023',
+      category: 'Game Development',
+      status: 'Completed',
+      description: 'Developed an interactive map-based strategy game where players compete for territory control on a dynamic map.',
+      technologies: ['JavaScript', 'Canvas API', 'Game Logic']
+    },
+    {
+      name: 'Digital Invitation System 2.0',
+      date: '2024',
+      category: 'Web Development',
+      status: 'Completed',
+      description: 'Built a modern digital invitation platform for creating and sending elegant event invitations with RSVP tracking.',
+      technologies: ['React.js', 'Node.js', 'Email APIs', 'Database']
+    },
+    {
+      name: 'Night Club - Event Management',
+      date: '2023',
+      category: 'Web Development',
+      status: 'Completed',
+      description: 'Created a night club event management system for booking events, managing guest lists, and handling ticket sales.',
+      technologies: ['React.js', 'Node.js', 'Payment Gateway', 'Database']
+    },
+    {
+      name: 'Rock and Rolls - Music Platform',
+      date: '2023',
+      category: 'Web Development',
+      status: 'Completed',
+      description: 'Developed a music streaming and discovery platform with playlist management and social sharing features.',
+      technologies: ['React.js', 'Node.js', 'Audio Streaming', 'Database']
+    },
+    {
+      name: 'Wedding Invitation System',
+      date: '2024',
+      category: 'Web Development',
+      status: 'Completed',
+      description: 'Built a beautiful wedding invitation system with customizable templates, RSVP tracking, and guest management.',
+      technologies: ['React.js', 'Node.js', 'Email Services', 'Database']
     }
   ];
 
