@@ -355,7 +355,7 @@ const App = () => {
                   color: filterCategory === 'AI/ML' ? '#FFFFFF' : '#222222',
                   padding: '0.5rem 1rem',
                   border: '1px solid #E5E5E5',
-                  cursor: pointer',
+                  cursor: 'pointer',
                   transition: 'all 0.2s ease',
                   fontWeight: '500'
                 }}
@@ -370,7 +370,7 @@ const App = () => {
                   color: filterCategory === 'Full Stack' ? '#FFFFFF' : '#222222',
                   padding: '0.5rem 1rem',
                   border: '1px solid #E5E5E5',
-                  cursor: pointer',
+                  cursor: 'pointer',
                   transition: 'all 0.2s ease',
                   fontWeight: '500'
                 }}
