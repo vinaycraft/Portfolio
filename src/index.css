@@ -13,6 +13,32 @@
   --white: #FFFFFF;
   --accent: #E63946;
   --border: #E5E5E5;
+  
+  /* Swiss Design Spacing Scale (Golden Ratio based) */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.618rem;   /* 26px - Golden Ratio */
+  --space-xl: 2.618rem;   /* 42px - Golden Ratio² */
+  --space-2xl: 4.236rem;  /* 68px - Golden Ratio³ */
+  --space-3xl: 6.854rem;  /* 110px - Golden Ratio⁴ */
+  --space-4xl: 11.09rem;  /* 178px - Golden Ratio⁵ */
+  
+  /* Grid System */
+  --grid-columns: 12;
+  --grid-gutter: 1.618rem;
+  --container-max: 1600px;
+  
+  /* Typography Scale (Major Third) */
+  --font-xs: 0.75rem;     /* 12px */
+  --font-sm: 0.875rem;    /* 14px */
+  --font-base: 1rem;      /* 16px */
+  --font-lg: 1.125rem;    /* 18px */
+  --font-xl: 1.25rem;     /* 20px */
+  --font-2xl: 1.5rem;     /* 24px */
+  --font-3xl: 1.875rem;   /* 30px */
+  --font-4xl: 2.25rem;    /* 36px */
+  --font-5xl: 3rem;       /* 48px */
 }
 
 body {
@@ -23,8 +49,8 @@ body {
   min-height: 100vh;
   color: var(--primary);
   scroll-behavior: smooth;
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: 1.6;
+  font-size: var(--font-base);
   position: relative;
 }
 
@@ -32,29 +58,30 @@ body {
 h1 {
   font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
 }
 
 h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: var(--font-lg);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--secondary);
+  letter-spacing: 0.005em;
 }
 
 /* Monospace for tech elements */
@@ -91,7 +118,7 @@ p {
 }
 
 .container {
-  max-width: 1600px;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0;
 }
@@ -99,7 +126,7 @@ p {
 /* Navigation */
 nav {
   background: var(--white);
-  padding: 2rem 4rem;
+  padding: var(--space-lg) var(--space-3xl);
   position: fixed;
   width: 100%;
   top: 0;
@@ -151,7 +178,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 4rem;
+  gap: var(--space-2xl);
   list-style: none;
   align-items: center;
 }
@@ -215,24 +242,24 @@ nav {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8rem 4rem 4rem;
+  padding: var(--space-4xl) var(--space-3xl) var(--space-3xl);
   background: var(--white);
 }
 
 .hero-container {
-  max-width: 1600px;
+  max-width: var(--container-max);
   margin: 0 auto;
   width: 100%;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 6rem;
+  gap: var(--space-3xl);
   align-items: center;
 }
 
 .hero-left {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: var(--space-2xl);
 }
 
 .vertical-text {
@@ -252,8 +279,8 @@ nav {
 
 .hero-stats {
   display: flex;
-  gap: 6rem;
-  margin-top: 1rem;
+  gap: var(--space-3xl);
+  margin-top: var(--space-md);
 }
 
 .stat-item {
@@ -320,7 +347,7 @@ nav {
 .section {
   background: var(--white);
   border-radius: 0;
-  padding: 8rem 4rem;
+  padding: var(--space-4xl) var(--space-3xl);
   margin-bottom: 0;
   box-shadow: none;
   opacity: 0;
@@ -337,38 +364,38 @@ nav {
 .section h2 {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-3xl);
   color: var(--primary);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
 }
 
 /* Skills Section */
 .skills-container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: var(--space-3xl);
 }
 
 .skill-category {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--space-xl);
 }
 
 .skill-category-title {
-  font-size: 1.3rem;
+  font-size: var(--font-lg);
   font-weight: 700;
   color: var(--primary);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-sm);
   text-transform: uppercase;
 }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  gap: var(--space-md);
 }
 
 .skill-badge {
@@ -396,8 +423,8 @@ nav {
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  margin-top: 2rem;
+  gap: var(--space-2xl);
+  margin-top: var(--space-xl);
 }
 
 .project-card {
@@ -416,27 +443,27 @@ nav {
 
 .project-card h3 {
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  padding: 2rem 2rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  padding: var(--space-xl) var(--space-xl) 0;
 }
 
 .project-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  padding: 0 2rem;
+  margin-bottom: var(--space-md);
+  padding: 0 var(--space-xl);
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-sm);
 }
 
 .project-badges {
   display: flex;
-  gap: 0.5rem;
+  gap: var(--space-sm);
   flex-wrap: wrap;
 }
 
@@ -475,21 +502,21 @@ nav {
 
 .project-card .date {
   color: var(--secondary);
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
+  font-size: var(--font-xs);
+  margin-bottom: var(--space-md);
   font-weight: 500;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  padding: 0 2rem;
+  padding: 0 var(--space-xl);
 }
 
 .project-card .description {
   color: var(--secondary);
-  line-height: 1.6;
-  font-size: 1rem;
+  line-height: 1.7;
+  font-size: var(--font-base);
   font-weight: 400;
-  padding: 0 2rem 2rem;
+  padding: 0 var(--space-xl) var(--space-xl);
 }
 
 /* GitHub Section */
@@ -518,11 +545,11 @@ nav {
 
 /* Experience Section */
 .experience-item {
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-3xl);
   padding-left: 0;
   position: relative;
   border-left: 2px solid var(--border);
-  padding-left: 2rem;
+  padding-left: var(--space-xl);
 }
 
 .experience-item::before {
@@ -539,29 +566,29 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-xl);
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-lg);
 }
 
 .experience-title {
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 
 .experience-company {
   color: var(--secondary);
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: var(--font-base);
+  margin-bottom: var(--space-xs);
   font-weight: 500;
 }
 
 .experience-location {
   color: var(--secondary);
-  font-size: 0.85rem;
+  font-size: var(--font-xs);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -570,7 +597,7 @@ nav {
 .experience-period {
   color: var(--primary);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: var(--font-xs);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -585,10 +612,10 @@ nav {
 .experience-description li {
   color: var(--secondary);
   line-height: 1.7;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
   position: relative;
-  font-size: 1rem;
+  font-size: var(--font-base);
 }
 
 .experience-description li::before {
@@ -601,13 +628,13 @@ nav {
 
 /* Education Section */
 .education-item {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-2xl);
   padding-bottom: 0;
   border-bottom: none;
   padding-left: 0;
   position: relative;
   border-left: 2px solid var(--border);
-  padding-left: 2rem;
+  padding-left: var(--space-xl);
 }
 
 .education-item::before {
@@ -630,21 +657,21 @@ nav {
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 
 .education-institution {
   color: var(--secondary);
-  font-size: 1rem;
-  margin-bottom: 0.25rem;
+  font-size: var(--font-base);
+  margin-bottom: var(--space-xs);
   font-weight: 500;
 }
 
 .education-period {
   color: var(--primary);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: var(--font-xs);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -652,61 +679,61 @@ nav {
 
 .education-details {
   color: var(--secondary);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--font-base);
+  line-height: 1.7;
 }
 
 /* Footer */
 .footer {
   background: var(--primary);
   color: var(--white);
-  padding: 6rem 4rem 3rem;
+  padding: var(--space-4xl) var(--space-3xl) var(--space-2xl);
   margin-top: 0;
   position: relative;
   border-top: 1px solid var(--border);
 }
 
 .footer-content {
-  max-width: 1600px;
+  max-width: var(--container-max);
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: var(--space-2xl);
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .footer-left h3 {
-  font-size: 2rem;
+  font-size: var(--font-3xl);
   font-weight: 900;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-sm);
   letter-spacing: -0.02em;
 }
 
 .footer-left p {
   color: var(--secondary);
-  font-size: 1rem;
+  font-size: var(--font-base);
 }
 
 .download-resume-btn {
   display: inline-block;
   background: var(--accent);
   color: var(--white);
-  padding: 1rem 2rem;
+  padding: var(--space-md) var(--space-xl);
   border-radius: 0;
   text-decoration: none;
   font-weight: 700;
   transition: all 0.2s ease;
-  margin-top: 1rem;
-  letter-spacing: -0.01em;
+  margin-top: var(--space-md);
+  letter-spacing: -0.02em;
   border: 2px solid var(--accent);
-  font-size: 0.95rem;
+  font-size: var(--font-sm);
 }
 
 .download-resume-btn:hover {
@@ -718,12 +745,12 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
 .footer-social {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-xl);
 }
 
 .footer-social a {
@@ -731,7 +758,7 @@ nav {
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
-  font-size: 0.95rem;
+  font-size: var(--font-sm);
 }
 
 .footer-social a:hover {
@@ -740,7 +767,7 @@ nav {
 
 .footer-copyright {
   color: var(--secondary);
-  font-size: 0.85rem;
+  font-size: var(--font-xs);
   font-weight: 500;
 }
 
