@@ -12,7 +12,7 @@ const App = () => {
     message: ''
   });
   const [formStatus, setFormStatus] = useState('idle');
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [filterCategory, setFilterCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -120,28 +120,13 @@ const App = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Dr. Rajesh Kumar',
-      role: 'Professor, Shivaji University',
-      text: 'Vinay demonstrates exceptional problem-solving skills and a deep understanding of software development principles. His projects show remarkable attention to detail and technical excellence.',
-      company: 'Shivaji University'
-    },
-    {
-      name: 'Priya Sharma',
-      role: 'Senior Developer, TechCorp',
-      text: 'Working with Vinay was a great experience. His ability to quickly grasp complex concepts and deliver high-quality code is impressive. A true professional in every sense.',
-      company: 'TechCorp'
-    }
-  ];
-
   useEffect(() => {
     const handleScroll = () => {
       // Show/hide back to top button
       setShowBackToTop(window.scrollY > 500);
 
       // Update active section based on scroll position
-      const sections = ['top', 'skills', 'projects', 'experience', 'education', 'testimonials', 'contact'];
+      const sections = ['top', 'skills', 'projects', 'experience', 'education', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -153,6 +138,11 @@ const App = () => {
         }
       }
     };
+
+    // Apply dark mode class on mount
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    }
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -272,7 +262,6 @@ const App = () => {
           <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }} className={activeSection === 'projects' ? 'active' : ''}>Projects</a></li>
           <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }} className={activeSection === 'experience' ? 'active' : ''}>Experience</a></li>
           <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }} className={activeSection === 'education' ? 'active' : ''}>Education</a></li>
-          <li><a href="#testimonials" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }} className={activeSection === 'testimonials' ? 'active' : ''}>Testimonials</a></li>
           <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className={`nav-cta ${activeSection === 'contact' ? 'active' : ''}`}>Contact →</a></li>
         </ul>
       </nav>
@@ -509,199 +498,228 @@ const App = () => {
           </div>
         </section>
 
-        <section id="testimonials" className="section">
-          <h2>Testimonials</h2>
-          <div className="testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="testimonial-card">
-                <div className="testimonial-quote">"</div>
-                <p className="testimonial-text">
-                  {testimonial.text}
-                </p>
-                <div className="testimonial-author">
-                  <div className="testimonial-avatar">
-                    {testimonial.name.charAt(0)}
+        <section id="contact" className="section">
+          <h2>Get In Touch</h2>
+          <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem' }} className="contact-grid">
+              <div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#222222' }}>Contact Information</h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ 
+                      width: '48px', 
+                      height: '48px', 
+                      background: '#E63946', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      color: '#FFFFFF',
+                      fontSize: '1.2rem'
+                    }}>
+                      📧
+                    </div>
+                    <div>
+                      <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Email</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>vinay100876@gmail.com</p>
+                    </div>
                   </div>
-                  <div className="testimonial-info">
-                    <h4>{testimonial.name}</h4>
-                    <p className="role">{testimonial.role}</p>
-                    <p className="company">{testimonial.company}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ 
+                      width: '48px', 
+                      height: '48px', 
+                      background: '#E63946', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      color: '#FFFFFF',
+                      fontSize: '1.2rem'
+                    }}>
+                      📱
+                    </div>
+                    <div>
+                      <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Phone</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>+91-7263060086</p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <div style={{ 
+                      width: '48px', 
+                      height: '48px', 
+                      background: '#E63946', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      color: '#FFFFFF',
+                      fontSize: '1.2rem'
+                    }}>
+                      📍
+                    </div>
+                    <div>
+                      <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Location</p>
+                      <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>Pune, Maharashtra, India</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div style={{ marginTop: '2rem' }}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '1rem', color: '#222222' }}>Connect With Me</h4>
+                  <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <a 
+                      href="https://github.com/vinaycraft" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="github-link"
+                      style={{ padding: '0.8rem 1.5rem' }}
+                    >
+                      GitHub
+                    </a>
+                    <a 
+                      href="https://linkedin.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="github-link"
+                      style={{ padding: '0.8rem 1.5rem' }}
+                    >
+                      LinkedIn
+                    </a>
+                    <a 
+                      href="https://leetcode.com" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="github-link"
+                      style={{ padding: '0.8rem 1.5rem' }}
+                    >
+                      LeetCode
+                    </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="contact" className="section">
-          <h2>Get In Touch</h2>
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-            <p style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1.1rem', textAlign: 'center' }}>
-              Feel free to reach out for collaborations, opportunities, or just to connect!
-            </p>
-            
-            {formStatus === 'success' && (
-              <div style={{ 
-                background: '#E8F5E9', 
-                color: '#2E7D32', 
-                padding: '1rem 1.5rem', 
-                borderRadius: '0', 
-                marginBottom: '2rem',
-                textAlign: 'center',
-                fontWeight: '600',
-                border: '1px solid #2E7D32'
-              }}>
-                ✓ Message sent successfully! I'll get back to you soon.
-              </div>
-            )}
-            
-            <form onSubmit={handleSubmit} style={{ marginBottom: '2rem' }}>
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ 
-                  display: 'block', 
-                  marginBottom: '0.5rem', 
-                  color: '#222222', 
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleFormChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.8rem 1rem',
-                    border: '1px solid #E5E5E5',
-                    borderRadius: '0',
-                    fontSize: '1rem',
-                    fontFamily: 'Inter, sans-serif',
-                    outline: 'none',
-                    transition: 'border-color 0.2s'
-                  }}
-                  placeholder="Your name"
-                />
-              </div>
               
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ 
-                  display: 'block', 
-                  marginBottom: '0.5rem', 
-                  color: '#222222', 
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleFormChange}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.8rem 1rem',
-                    border: '1px solid #E5E5E5',
-                    borderRadius: '0',
-                    fontSize: '1rem',
-                    fontFamily: 'Inter, sans-serif',
-                    outline: 'none',
-                    transition: 'border-color 0.2s'
-                  }}
-                  placeholder="your.email@example.com"
-                />
+              <div>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#222222' }}>Send a Message</h3>
+                
+                {formStatus === 'success' && (
+                  <div style={{ 
+                    background: '#E8F5E9', 
+                    color: '#2E7D32', 
+                    padding: '1rem 1.5rem', 
+                    borderRadius: '0', 
+                    marginBottom: '1.5rem',
+                    fontWeight: '600',
+                    border: '1px solid #2E7D32',
+                    fontSize: '0.9rem'
+                  }}>
+                    ✓ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit}>
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <label style={{ 
+                      display: 'block', 
+                      marginBottom: '0.5rem', 
+                      color: '#222222', 
+                      fontWeight: '600',
+                      fontSize: '0.85rem'
+                    }}>
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleFormChange}
+                      required
+                      style={{
+                        width: '100%',
+                        padding: '0.75rem 1rem',
+                        border: '1px solid #E5E5E5',
+                        borderRadius: '0',
+                        fontSize: '0.95rem',
+                        fontFamily: 'Inter, sans-serif',
+                        outline: 'none',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      placeholder="Your name"
+                    />
+                  </div>
+                  
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <label style={{ 
+                      display: 'block', 
+                      marginBottom: '0.5rem', 
+                      color: '#222222', 
+                      fontWeight: '600',
+                      fontSize: '0.85rem'
+                    }}>
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleFormChange}
+                      required
+                      style={{
+                        width: '100%',
+                        padding: '0.75rem 1rem',
+                        border: '1px solid #E5E5E5',
+                        borderRadius: '0',
+                        fontSize: '0.95rem',
+                        fontFamily: 'Inter, sans-serif',
+                        outline: 'none',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                      }}
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  
+                  <div style={{ marginBottom: '1.25rem' }}>
+                    <label style={{ 
+                      display: 'block', 
+                      marginBottom: '0.5rem', 
+                      color: '#222222', 
+                      fontWeight: '600',
+                      fontSize: '0.85rem'
+                    }}>
+                      Message
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleFormChange}
+                      required
+                      rows="4"
+                      style={{
+                        width: '100%',
+                        padding: '0.75rem 1rem',
+                        border: '1px solid #E5E5E5',
+                        borderRadius: '0',
+                        fontSize: '0.95rem',
+                        fontFamily: 'Inter, sans-serif',
+                        outline: 'none',
+                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
+                        resize: 'vertical'
+                      }}
+                      placeholder="Your message..."
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={formStatus === 'sending'}
+                    className="github-link"
+                    style={{
+                      cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer',
+                      opacity: formStatus === 'sending' ? 0.7 : 1,
+                      width: '100%',
+                      textAlign: 'center'
+                    }}
+                  >
+                    {formStatus === 'sending' ? 'Sending...' : 'Send Message →'}
+                  </button>
+                </form>
               </div>
-              
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ 
-                  display: 'block', 
-                  marginBottom: '0.5rem', 
-                  color: '#222222', 
-                  fontWeight: '600',
-                  fontSize: '0.9rem'
-                }}>
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleFormChange}
-                  required
-                  rows="5"
-                  style={{
-                    width: '100%',
-                    padding: '0.8rem 1rem',
-                    border: '1px solid #E5E5E5',
-                    borderRadius: '0',
-                    fontSize: '1rem',
-                    fontFamily: 'Inter, sans-serif',
-                    outline: 'none',
-                    transition: 'border-color 0.2s',
-                    resize: 'vertical'
-                  }}
-                  placeholder="Your message..."
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={formStatus === 'sending'}
-                className="github-link"
-                style={{
-                  cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer',
-                  opacity: formStatus === 'sending' ? 0.7 : 1
-                }}
-              >
-                {formStatus === 'sending' ? 'Sending...' : 'Send Message →'}
-              </button>
-            </form>
-            
-            <div style={{ 
-              display: 'flex', 
-              gap: '1rem', 
-              justifyContent: 'center', 
-              flexWrap: 'wrap',
-              marginBottom: '2rem'
-            }}>
-              <a 
-                href="https://github.com/vinaycraft" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="github-link"
-              >
-                GitHub →
-              </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="github-link"
-              >
-                LinkedIn →
-              </a>
-              <a 
-                href="https://leetcode.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="github-link"
-              >
-                LeetCode →
-              </a>
-            </div>
-            
-            <div style={{ 
-              textAlign: 'center', 
-              color: '#7B7B7B', 
-              fontSize: '0.95rem',
-              lineHeight: '1.7'
-            }}>
-              <p style={{ marginBottom: '0.5rem' }}>📧 vinay100876@gmail.com</p>
-              <p style={{ marginBottom: '0.5rem' }}>📱 +91-7263060086</p>
-              <p>📍 Pune, Maharashtra, India</p>
             </div>
           </div>
         </section>
