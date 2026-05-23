@@ -12,6 +12,9 @@ const App = () => {
     message: ''
   });
   const [formStatus, setFormStatus] = useState('idle');
+  const [darkMode, setDarkMode] = useState(false);
+  const [filterCategory, setFilterCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const skills = {
     'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
@@ -200,6 +203,20 @@ const App = () => {
     });
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.body.classList.toggle('dark-mode');
+  };
+
+  const filteredProjects = projects.filter(project => {
+    const matchesCategory = filterCategory === 'All' || project.category === filterCategory;
+    const matchesSearch = searchTerm === '' || 
+      project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
+
   const handleFormChange = (e) => {
     setFormData({
       ...formData,
@@ -233,6 +250,13 @@ const App = () => {
 
       <nav>
         <div className="nav-logo">VP</div>
+        <button 
+          className="dark-mode-toggle"
+          onClick={toggleDarkMode}
+          aria-label="Toggle dark mode"
+        >
+          {darkMode ? '☀' : '🌙'}
+        </button>
         <button 
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -306,8 +330,103 @@ const App = () => {
 
         <section id="projects" className="section">
           <h2>My Projects</h2>
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+              <button
+                onClick={() => setFilterCategory('All')}
+                className={`filter-btn mono ${filterCategory === 'All' ? 'active' : ''}`}
+                style={{
+                  background: filterCategory === 'All' ? '#E63946' : '#F5F5F5',
+                  color: filterCategory === 'All' ? '#FFFFFF' : '#222222',
+                  padding: '0.5rem 1rem',
+                  border: '1px solid #E5E5E5',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  fontWeight: '500'
+                }}
+              >
+                All
+              </button>
+              <button
+                onClick={() => setFilterCategory('AI/ML')}
+                className={`filter-btn mono ${filterCategory === 'AI/ML' ? 'active' : ''}`}
+                style={{
+                  background: filterCategory === 'AI/ML' ? '#E63946' : '#F5F5F5',
+                  color: filterCategory === 'AI/ML' ? '#FFFFFF' : '#222222',
+                  padding: '0.5rem 1rem',
+                  border: '1px solid #E5E5E5',
+                  cursor: pointer',
+                  transition: 'all 0.2s ease',
+                  fontWeight: '500'
+                }}
+              >
+                AI/ML
+              </button>
+              <button
+                onClick={() => setFilterCategory('Full Stack')}
+                className={`filter-btn mono ${filterCategory === 'Full Stack' ? 'active' : ''}`}
+                style={{
+                  background: filterCategory === 'Full Stack' ? '#E63946' : '#F5F5F5',
+                  color: filterCategory === 'Full Stack' ? '#FFFFFF' : '#222222',
+                  padding: '0.5rem 1rem',
+                  border: '1px solid #E5E5E5',
+                  cursor: pointer',
+                  transition: 'all 0.2s ease',
+                  fontWeight: '500'
+                }}
+              >
+                Full Stack
+              </button>
+              <button
+                onClick={() => setFilterCategory('Backend')}
+                className={`filter-btn mono ${filterCategory === 'Backend' ? 'active' : ''}`}
+                style={{
+                  background: filterCategory === 'Backend' ? '#E63946' : '#F5F5F5',
+                  color: filterCategory === 'Backend' ? '#FFFFFF' : '#222222',
+                  padding: '0.5rem 1rem',
+                  border: '1px solid #E5E5E5',
+                  cursor: pointer,
+                  transition: 'all 0.2s ease',
+                  fontWeight: '500'
+                }}
+              >
+                Backend
+              </button>
+              <button
+                onClick={() => setFilterCategory('Automation')}
+                className={`filter-btn mono ${filterCategory === 'Automation' ? 'active' : ''}`}
+                style={{
+                  background: filterCategory === 'Automation' ? '#E63946' : '#F5F5F5',
+                  color: filterCategory === 'Automation' ? '#FFFFFF' : '#222222',
+                  padding: '0.5rem 1rem',
+                  border: '1px solid #E5E5E5',
+                  cursor: pointer,
+                  transition: 'all 0.2s ease',
+                  fontWeight: '500'
+                }}
+              >
+                Automation
+              </button>
+            </div>
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.8rem 1rem',
+                border: '1px solid #E5E5E5',
+                borderRadius: '0',
+                fontSize: '1rem',
+                fontFamily: 'Inter, sans-serif',
+                outline: 'none',
+                transition: 'border-color 0.2s ease'
+              }}
+            />
+          </div>
           <div className="projects-grid">
-            {projects.map((project, index) => (
+            {filteredProjects.map((project, index) => (
               <div key={index} className="project-card">
                 <div className="project-header">
                   <h3>{project.name}</h3>
