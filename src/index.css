@@ -11,7 +11,7 @@
   --secondary: #666666;
   --tertiary: #F5F5F5;
   --white: #FFFFFF;
-  --accent: #000000;
+  --accent: #E63946;
   --border: #E5E5E5;
 }
 
@@ -71,9 +71,9 @@ p {
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white);
-  border: 2px solid var(--primary);
+  border: 2px solid var(--accent);
   border-radius: 0;
   font-size: 1.5rem;
   cursor: pointer;
@@ -86,8 +86,8 @@ p {
 
 .back-to-top:hover {
   background: var(--white);
-  color: var(--primary);
-  border-color: var(--primary);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .container {
@@ -182,48 +182,31 @@ nav {
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--primary);
+  background: var(--accent);
 }
 
 .nav-cta {
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white) !important;
   padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600 !important;
+  border-radius: 0;
+  font-weight: 700 !important;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background 0.3s, transform 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-cta::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.nav-cta:hover::before {
-  width: 300px;
-  height: 300px;
+  transition: all 0.2s ease;
+  border: 2px solid var(--accent);
 }
 
 .nav-cta:hover {
-  background: var(--secondary);
-  transform: translateY(-2px);
+  background: var(--white);
+  color: var(--accent) !important;
 }
 
 .nav-cta.active {
-  background: var(--secondary);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white) !important;
 }
 
 /* Hero Section */
@@ -404,9 +387,9 @@ nav {
 }
 
 .skill-badge:hover {
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white);
-  border-color: var(--primary);
+  border-color: var(--accent);
 }
 
 /* Projects Section */
@@ -428,7 +411,7 @@ nav {
 }
 
 .project-card:hover {
-  border-color: var(--primary);
+  border-color: var(--accent);
 }
 
 .project-card h3 {
@@ -485,9 +468,9 @@ nav {
 }
 
 .project-status-badge.ongoing {
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--accent);
 }
 
 .project-card .date {
@@ -516,7 +499,7 @@ nav {
 
 .github-link {
   display: inline-block;
-  background: var(--primary);
+  background: var(--accent);
   color: var(--white);
   padding: 1rem 2rem;
   border-radius: 0;
@@ -525,12 +508,12 @@ nav {
   transition: all 0.2s ease;
   margin-top: 1rem;
   letter-spacing: -0.01em;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--accent);
 }
 
 .github-link:hover {
   background: var(--white);
-  color: var(--primary);
+  color: var(--accent);
 }
 
 /* Experience Section */
@@ -549,7 +532,7 @@ nav {
   top: 0;
   width: 2px;
   height: 100%;
-  background: var(--primary);
+  background: var(--accent);
 }
 
 .experience-header {
@@ -634,7 +617,7 @@ nav {
   top: 0;
   width: 2px;
   height: 100%;
-  background: var(--primary);
+  background: var(--accent);
 }
 
 .education-item:last-child {
@@ -713,8 +696,8 @@ nav {
 
 .download-resume-btn {
   display: inline-block;
-  background: var(--white);
-  color: var(--primary);
+  background: var(--accent);
+  color: var(--white);
   padding: 1rem 2rem;
   border-radius: 0;
   text-decoration: none;
@@ -722,13 +705,13 @@ nav {
   transition: all 0.2s ease;
   margin-top: 1rem;
   letter-spacing: -0.01em;
-  border: 2px solid var(--white);
+  border: 2px solid var(--accent);
   font-size: 0.95rem;
 }
 
 .download-resume-btn:hover {
-  background: transparent;
-  color: var(--white);
+  background: var(--white);
+  color: var(--accent);
 }
 
 .footer-right {
