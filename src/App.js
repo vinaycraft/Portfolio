@@ -6,6 +6,12 @@ const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState('idle');
 
   const skills = {
     'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
@@ -192,6 +198,28 @@ const App = () => {
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const handleFormChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus('sending');
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setFormStatus('success');
+      setFormData({ name: '', email: '', message: });
+      
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 3000);
+    }, 1500);
   };
 
   return (
@@ -386,47 +414,176 @@ const App = () => {
           </div>
         </section>
 
-        <section id="contact" className="section github-section">
+        <section id="contact" className="section">
           <h2>Get In Touch</h2>
-          <p style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
-            Feel free to reach out for collaborations, opportunities, or just to connect!
-          </p>
-          <div style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1rem' }}>
-            <p style={{ marginBottom: '0.5rem' }}>📧 vinay100876@gmail.com</p>
-            <p style={{ marginBottom: '0.5rem' }}>📱 +91-7263060086</p>
-            <p>📍 Pune, Maharashtra, India</p>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a 
-              href="https://github.com/vinaycraft" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="github-link"
-            >
-              GitHub
-            </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="github-link"
-            >
-              LinkedIn
-            </a>
-            <a 
-              href="https://leetcode.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="github-link"
-            >
-              LeetCode
-            </a>
-            <a 
-              href="mailto:vinay100876@gmail.com" 
-              className="github-link"
-            >
-              Email
-            </a>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <p style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1.1rem', textAlign: 'center' }}>
+              Feel free to reach out for collaborations, opportunities, or just to connect!
+            </p>
+            
+            {formStatus === 'success' && (
+              <div style={{ 
+                background: '#E8F5E9', 
+                color: '#2E7D32', 
+                padding: '1rem 1.5rem', 
+                borderRadius: '0', 
+                marginBottom: '2rem',
+                textAlign: 'center',
+                fontWeight: '600',
+                border: '1px solid #2E7D32'
+              }}>
+                ✓ Message sent successfully! I'll get back to you soon.
+              </div>
+            )}
+            
+            <form onSubmit={handleSubmit} style={{ marginBottom: '2rem' }}>
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '0.5rem', 
+                  color: '#222222', 
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.8rem 1rem',
+                    border: '1px solid #E5E5E5',
+                    borderRadius: '0',
+                    fontSize: '1rem',
+                    fontFamily: 'Inter, sans-serif',
+                    outline: 'none',
+                    transition: 'border-color 0.2s'
+                  }}
+                  placeholder="Your name"
+                />
+              </div>
+              
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '0.5rem', 
+                  color: '#222222', 
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.8rem 1rem',
+                    border: '1px solid #E5E5E5',
+                    borderRadius: '0',
+                    fontSize: '1rem',
+                    fontFamily: 'Inter, sans-serif',
+                    outline: 'none',
+                    transition: 'border-color 0.2s'
+                  }}
+                  placeholder="your.email@example.com"
+                />
+              </div>
+              
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label style={{ 
+                  display: 'block', 
+                  marginBottom: '0.5rem', 
+                  color: '#222222', 
+                  fontWeight: '600',
+                  fontSize: '0.9rem'
+                }}>
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleFormChange}
+                  required
+                  rows="5"
+                  style={{
+                    width: '100%',
+                    padding: '0.8rem 1rem',
+                    border: '1px solid #E5E5E5',
+                    borderRadius: '0',
+                    fontSize: '1rem',
+                    fontFamily: 'Inter, sans-serif',
+                    outline: 'none',
+                    transition: 'border-color 0.2s',
+                    resize: 'vertical'
+                  }}
+                  placeholder="Your message..."
+                />
+              </div>
+              
+              <button
+                type="submit"
+                disabled={formStatus === 'sending'}
+                className="github-link"
+                style={{
+                  cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer',
+                  opacity: formStatus === 'sending' ? 0.7 : 1
+                }}
+              >
+                {formStatus === 'sending' ? 'Sending...' : 'Send Message →'}
+              </button>
+            </form>
+            
+            <div style={{ 
+              display: 'flex', 
+              gap: '1rem', 
+              justifyContent: 'center', 
+              flexWrap: 'wrap',
+              marginBottom: '2rem'
+            }}>
+              <a 
+                href="https://github.com/vinaycraft" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                GitHub →
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                LinkedIn →
+              </a>
+              <a 
+                href="https://leetcode.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="github-link"
+              >
+                LeetCode →
+              </a>
+            </div>
+            
+            <div style={{ 
+              textAlign: 'center', 
+              color: '#7B7B7B', 
+              fontSize: '0.95rem',
+              lineHeight: '1.7'
+            }}>
+              <p style={{ marginBottom: '0.5rem' }}>📧 vinay100876@gmail.com</p>
+              <p style={{ marginBottom: '0.5rem' }}>📱 +91-7263060086</p>
+              <p>📍 Pune, Maharashtra, India</p>
+            </div>
           </div>
         </section>
 
