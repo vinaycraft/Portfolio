@@ -10,7 +10,7 @@
   --primary: #000000;
   --secondary: #666666;
   --tertiary: #F5F5F5;
-  --white: #f8f8f8;
+  --white: #ffffff;
   --accent: #E63946;
   --border: #E5E5E5;
   
@@ -161,7 +161,7 @@ p {
 /* Navigation */
 nav {
   background: var(--white);
-  padding: var(--space-lg) var(--space-3xl);
+  padding: var(--space-md) var(--space-3xl);
   position: fixed;
   width: 100%;
   top: 0;
@@ -170,6 +170,13 @@ nav {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode nav {
+  background: rgba(18, 18, 18, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dark-mode-toggle {
@@ -212,10 +219,20 @@ body.dark-mode .dark-mode-toggle:hover {
 }
 
 .nav-logo {
-  font-weight: 900;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--primary);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+body.dark-mode .nav-logo {
+  color: var(--white);
+  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
 }
 
 /* Mobile Menu Toggle */
@@ -252,7 +269,7 @@ body.dark-mode .dark-mode-toggle:hover {
 
 .nav-links {
   display: flex;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   list-style: none;
   align-items: center;
 }
@@ -260,30 +277,46 @@ body.dark-mode .dark-mode-toggle:hover {
 .nav-links a {
   text-decoration: none;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.95rem;
-  transition: color 0.2s;
+  transition: all 0.3s ease;
   letter-spacing: -0.01em;
   position: relative;
+  padding: var(--space-xs) var(--space-sm);
 }
 
 .nav-links a:hover {
-  color: var(--secondary);
+  color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .nav-links a.active {
-  color: var(--primary);
-  font-weight: 700;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .nav-links a.active::after {
   content: '';
   position: absolute;
-  bottom: -8px;
-  left: 0;
-  width: 100%;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
   height: 2px;
   background: var(--accent);
+  border-radius: 2px;
+}
+
+body.dark-mode .nav-links a {
+  color: var(--white);
+}
+
+body.dark-mode .nav-links a:hover {
+  color: var(--accent);
+}
+
+body.dark-mode .nav-links a.active {
+  color: var(--accent);
 }
 
 .nav-cta {

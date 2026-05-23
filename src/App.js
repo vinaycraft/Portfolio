@@ -241,7 +241,7 @@ const App = () => {
       )}
 
       <nav>
-        <div className="nav-logo">VP</div>
+        <div className="nav-logo">🦊</div>
         <button 
           className="dark-mode-toggle"
           onClick={toggleDarkMode}
