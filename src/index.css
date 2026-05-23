@@ -208,15 +208,15 @@ body.dark-mode nav {
 }
 
 body.dark-mode .dark-mode-toggle {
-  background: var(--tertiary);
-  border-color: var(--border);
-  color: var(--white);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
 
 body.dark-mode .dark-mode-toggle:hover {
   background: var(--accent);
   border-color: var(--accent);
-  color: var(--white);
+  color: #ffffff;
 }
 
 .nav-logo {
