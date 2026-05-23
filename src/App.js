@@ -284,7 +284,7 @@ const App = () => {
         </div>
       </section>
 
-      <div className="container">
+      <div className="container" id="main-content">
 
         <section id="skills" className="section">
           <h2>Skills Acquired</h2>
