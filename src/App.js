@@ -647,7 +647,7 @@ const App = () => {
                       GitHub
                     </a>
                     <a 
-                      href="https://linkedin.com" 
+                      href="https://www.linkedin.com/in/vinaycraft/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="github-link"
@@ -656,7 +656,7 @@ const App = () => {
                       LinkedIn
                     </a>
                     <a 
-                      href="https://leetcode.com" 
+                      href="https://leetcode.com/u/vinaycraft/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="github-link"
