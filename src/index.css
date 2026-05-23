@@ -795,6 +795,66 @@ body.dark-mode .hero {
   outline-offset: 2px;
 }
 
+.contact-item:hover {
+  transform: translateX(8px);
+}
+
+.social-link:hover {
+  background: #C92A3A;
+  border-color: #C92A3A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.contact-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+  background: #C92A3A;
+  border-color: #C92A3A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+.contact-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body.dark-mode .contact-item {
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .contact-item:hover {
+  transform: translateX(8px);
+}
+
+body.dark-mode .social-link:hover {
+  background: #C92A3A;
+  border-color: #C92A3A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
+body.dark-mode .contact-input {
+  background: var(--tertiary);
+  border-color: var(--border);
+  color: var(--white);
+}
+
+body.dark-mode .contact-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+body.dark-mode .contact-submit-btn:hover:not(:disabled) {
+  background: #C92A3A;
+  border-color: #C92A3A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+}
+
 /* Experience Section */
 .experience-item {
   margin-bottom: var(--space-3xl);

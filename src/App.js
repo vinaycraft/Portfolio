@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Mail, Phone, MapPin, Github, Linkedin, Code2 } from 'lucide-react';
 import './index.css';
 import profileImage from './assets/profile.png';
 
@@ -578,7 +578,47 @@ const App = () => {
               <div>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#222222' }}>Contact Information</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <a href="mailto:vinay100876@gmail.com" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.3s ease' }} className="contact-item">
+                      <div style={{ 
+                        width: '48px', 
+                        height: '48px', 
+                        background: '#E63946', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        color: '#FFFFFF',
+                        borderRadius: '0'
+                      }}>
+                        <Mail size={20} />
+                      </div>
+                      <div>
+                        <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Email</p>
+                        <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>vinay100876@gmail.com</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="tel:+917263060086" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.3s ease' }} className="contact-item">
+                      <div style={{ 
+                        width: '48px', 
+                        height: '48px', 
+                        background: '#E63946', 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        color: '#FFFFFF',
+                        borderRadius: '0'
+                      }}>
+                        <Phone size={20} />
+                      </div>
+                      <div>
+                        <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Phone</p>
+                        <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>+91-7263060086</p>
+                      </div>
+                    </div>
+                  </a>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', transition: 'transform 0.3s ease' }} className="contact-item">
                     <div style={{ 
                       width: '48px', 
                       height: '48px', 
@@ -587,45 +627,9 @@ const App = () => {
                       alignItems: 'center', 
                       justifyContent: 'center',
                       color: '#FFFFFF',
-                      fontSize: '1.2rem'
+                      borderRadius: '0'
                     }}>
-                      📧
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Email</p>
-                      <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>vinay100876@gmail.com</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ 
-                      width: '48px', 
-                      height: '48px', 
-                      background: '#E63946', 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center',
-                      color: '#FFFFFF',
-                      fontSize: '1.2rem'
-                    }}>
-                      📱
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Phone</p>
-                      <p style={{ fontSize: '1rem', fontWeight: '600', color: '#222222' }}>+91-7263060086</p>
-                    </div>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ 
-                      width: '48px', 
-                      height: '48px', 
-                      background: '#E63946', 
-                      display: 'flex', 
-                      alignItems: 'center', 
-                      justifyContent: 'center',
-                      color: '#FFFFFF',
-                      fontSize: '1.2rem'
-                    }}>
-                      📍
+                      <MapPin size={20} />
                     </div>
                     <div>
                       <p style={{ fontSize: '0.85rem', color: '#666666', marginBottom: '0.25rem' }}>Location</p>
@@ -641,27 +645,63 @@ const App = () => {
                       href="https://github.com/vinaycraft" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="github-link"
-                      style={{ padding: '0.8rem 1.5rem' }}
+                      className="social-link"
+                      style={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.8rem 1.5rem',
+                        background: '#E63946',
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        borderRadius: '0',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease'
+                      }}
                     >
+                      <Github size={18} />
                       GitHub
                     </a>
                     <a 
                       href="https://www.linkedin.com/in/vinaycraft/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="github-link"
-                      style={{ padding: '0.8rem 1.5rem' }}
+                      className="social-link"
+                      style={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.8rem 1.5rem',
+                        background: '#E63946',
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        borderRadius: '0',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease'
+                      }}
                     >
+                      <Linkedin size={18} />
                       LinkedIn
                     </a>
                     <a 
                       href="https://leetcode.com/u/vinaycraft/" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="github-link"
-                      style={{ padding: '0.8rem 1.5rem' }}
+                      className="social-link"
+                      style={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.8rem 1.5rem',
+                        background: '#E63946',
+                        color: '#FFFFFF',
+                        textDecoration: 'none',
+                        borderRadius: '0',
+                        fontWeight: '600',
+                        transition: 'all 0.3s ease'
+                      }}
                     >
+                      <Code2 size={18} />
                       LeetCode
                     </a>
                   </div>
@@ -670,13 +710,13 @@ const App = () => {
               
               <div>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '1.5rem', color: '#222222' }}>Send a Message</h3>
-                
+
                 {formStatus === 'success' && (
-                  <div style={{ 
-                    background: '#E8F5E9', 
-                    color: '#2E7D32', 
-                    padding: '1rem 1.5rem', 
-                    borderRadius: '0', 
+                  <div style={{
+                    background: '#E8F5E9',
+                    color: '#2E7D32',
+                    padding: '1rem 1.5rem',
+                    borderRadius: '0',
                     marginBottom: '1.5rem',
                     fontWeight: '600',
                     border: '1px solid #2E7D32',
@@ -685,13 +725,13 @@ const App = () => {
                     ✓ Message sent successfully! I'll get back to you soon.
                   </div>
                 )}
-                
+
                 <form onSubmit={handleSubmit}>
                   <div style={{ marginBottom: '1.25rem' }}>
-                    <label style={{ 
-                      display: 'block', 
-                      marginBottom: '0.5rem', 
-                      color: '#222222', 
+                    <label style={{
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                      color: '#222222',
                       fontWeight: '600',
                       fontSize: '0.85rem'
                     }}>
@@ -703,25 +743,27 @@ const App = () => {
                       value={formData.name}
                       onChange={handleFormChange}
                       required
+                      className="contact-input"
                       style={{
                         width: '100%',
-                        padding: '0.75rem 1rem',
-                        border: '1px solid #E5E5E5',
+                        padding: '0.875rem 1rem',
+                        border: '2px solid #E5E5E5',
                         borderRadius: '0',
                         fontSize: '0.95rem',
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none',
-                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+                        background: '#FFFFFF'
                       }}
                       placeholder="Your name"
                     />
                   </div>
                   
                   <div style={{ marginBottom: '1.25rem' }}>
-                    <label style={{ 
-                      display: 'block', 
-                      marginBottom: '0.5rem', 
-                      color: '#222222', 
+                    <label style={{
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                      color: '#222222',
                       fontWeight: '600',
                       fontSize: '0.85rem'
                     }}>
@@ -733,25 +775,27 @@ const App = () => {
                       value={formData.email}
                       onChange={handleFormChange}
                       required
+                      className="contact-input"
                       style={{
                         width: '100%',
-                        padding: '0.75rem 1rem',
-                        border: '1px solid #E5E5E5',
+                        padding: '0.875rem 1rem',
+                        border: '2px solid #E5E5E5',
                         borderRadius: '0',
                         fontSize: '0.95rem',
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none',
-                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease'
+                        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+                        background: '#FFFFFF'
                       }}
                       placeholder="your.email@example.com"
                     />
                   </div>
                   
                   <div style={{ marginBottom: '1.25rem' }}>
-                    <label style={{ 
-                      display: 'block', 
-                      marginBottom: '0.5rem', 
-                      color: '#222222', 
+                    <label style={{
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                      color: '#222222',
                       fontWeight: '600',
                       fontSize: '0.85rem'
                     }}>
@@ -763,30 +807,40 @@ const App = () => {
                       onChange={handleFormChange}
                       required
                       rows="4"
+                      className="contact-input"
                       style={{
                         width: '100%',
-                        padding: '0.75rem 1rem',
-                        border: '1px solid #E5E5E5',
+                        padding: '0.875rem 1rem',
+                        border: '2px solid #E5E5E5',
                         borderRadius: '0',
                         fontSize: '0.95rem',
                         fontFamily: 'Inter, sans-serif',
                         outline: 'none',
-                        transition: 'border-color 0.2s ease, box-shadow 0.2s ease',
-                        resize: 'vertical'
+                        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+                        resize: 'vertical',
+                        background: '#FFFFFF'
                       }}
                       placeholder="Your message..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     disabled={formStatus === 'sending'}
-                    className="github-link"
+                    className="contact-submit-btn"
                     style={{
                       cursor: formStatus === 'sending' ? 'not-allowed' : 'pointer',
                       opacity: formStatus === 'sending' ? 0.7 : 1,
                       width: '100%',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      padding: '1rem 1.5rem',
+                      background: '#E63946',
+                      color: '#FFFFFF',
+                      border: '2px solid #E63946',
+                      borderRadius: '0',
+                      fontWeight: '700',
+                      fontSize: '1rem',
+                      transition: 'all 0.3s ease'
                     }}
                   >
                     {formStatus === 'sending' ? 'Sending...' : 'Send Message →'}
