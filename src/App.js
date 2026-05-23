@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Mail, Phone, MapPin, Github, Linkedin, Code2 } from 'lucide-react';
+import { Sun, Moon, Mail, Phone, MapPin } from 'lucide-react';
 import './index.css';
 import profileImage from './assets/profile.png';
 
@@ -659,7 +659,6 @@ const App = () => {
                         transition: 'all 0.3s ease'
                       }}
                     >
-                      <Github size={18} />
                       GitHub
                     </a>
                     <a 
@@ -680,7 +679,6 @@ const App = () => {
                         transition: 'all 0.3s ease'
                       }}
                     >
-                      <Linkedin size={18} />
                       LinkedIn
                     </a>
                     <a 
@@ -701,7 +699,6 @@ const App = () => {
                         transition: 'all 0.3s ease'
                       }}
                     >
-                      <Code2 size={18} />
                       LeetCode
                     </a>
                   </div>
