@@ -430,8 +430,8 @@ body.dark-mode .dark-mode-toggle:hover {
 
 .hero-right {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   position: relative;
 }
 
@@ -443,6 +443,8 @@ body.dark-mode .dark-mode-toggle:hover {
   object-fit: cover;
   border: none;
   box-shadow: none;
+  background: transparent;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
 }
 
 /* Section Styles */
