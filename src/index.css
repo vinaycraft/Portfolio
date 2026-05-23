@@ -775,7 +775,7 @@ nav {
 @media (max-width: 1024px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: var(--space-2xl);
   }
 
   .hero-right {
@@ -791,11 +791,11 @@ nav {
   }
 
   nav {
-    padding: 1.5rem 2rem;
+    padding: var(--space-lg) var(--space-xl);
   }
 
   .section {
-    padding: 6rem 2rem;
+    padding: var(--space-3xl) var(--space-xl);
   }
 }
 
@@ -815,8 +815,8 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2.5rem;
-    padding: 3rem;
+    gap: var(--space-2xl);
+    padding: var(--space-2xl);
     box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
     transition: right 0.3s ease;
     border-left: 1px solid var(--border);
@@ -827,23 +827,23 @@ nav {
   }
 
   .nav-links a {
-    font-size: 1.2rem;
+    font-size: var(--font-lg);
   }
 
   .nav-links a.active::after {
-    bottom: -8px;
+    bottom: var(--space-sm);
   }
 
   nav {
-    padding: 1.5rem 2rem;
+    padding: var(--space-lg) var(--space-xl);
   }
 
   .hero {
-    padding: 6rem 2rem 3rem;
+    padding: var(--space-3xl) var(--space-xl) var(--space-2xl);
   }
 
   .hero-container {
-    gap: 3rem;
+    gap: var(--space-2xl);
   }
 
   .hero-greeting h1 {
@@ -851,7 +851,7 @@ nav {
   }
 
   .hero-stats {
-    gap: 3rem;
+    gap: var(--space-2xl);
   }
 
   .stat-number {
@@ -859,7 +859,7 @@ nav {
   }
 
   .section {
-    padding: 5rem 2rem;
+    padding: var(--space-3xl) var(--space-xl);
   }
 
   .section h2 {
@@ -867,11 +867,11 @@ nav {
   }
 
   .skills-container {
-    gap: 3rem;
+    gap: var(--space-2xl);
   }
 
   .skill-category {
-    gap: 1.5rem;
+    gap: var(--space-lg);
   }
 
   .skills-grid {
@@ -888,27 +888,23 @@ nav {
   }
 
   .experience-item {
-    padding-left: 1.5rem;
+    padding-left: var(--space-lg);
   }
 
   .education-item {
-    padding-left: 1.5rem;
-  }
-
-  .scroll-indicator {
-    left: 2rem;
+    padding-left: var(--space-lg);
   }
 
   .back-to-top {
-    bottom: 2rem;
-    right: 2rem;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
     width: 50px;
     height: 50px;
     font-size: 1.3rem;
   }
 
   .footer {
-    padding: 4rem 2rem 2rem;
+    padding: var(--space-3xl) var(--space-xl) var(--space-2xl);
   }
 
   .footer-content {
@@ -933,7 +929,7 @@ nav {
 
   .hero-stats {
     flex-direction: column;
-    gap: 2rem;
+    gap: var(--space-xl);
   }
 
   .section h2 {
@@ -945,6 +941,6 @@ nav {
   }
 
   .footer-left h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-2xl);
   }
 }
