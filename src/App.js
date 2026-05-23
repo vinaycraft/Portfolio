@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { Sun, Moon, Fox } from 'lucide-react';
 import './index.css';
 import profileImage from './assets/profile.png';
 
@@ -242,7 +242,7 @@ const App = () => {
       )}
 
       <nav>
-        <div className="nav-logo">🦊</div>
+        <div className="nav-logo"><Fox size={32} /></div>
         <button 
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

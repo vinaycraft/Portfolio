@@ -220,10 +220,7 @@ body.dark-mode .dark-mode-toggle:hover {
 }
 
 .nav-logo {
-  font-size: 2rem;
-  color: var(--primary);
-  letter-spacing: 0;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  color: #000000;
   transition: transform 0.3s ease;
 }
 
@@ -232,8 +229,7 @@ body.dark-mode .dark-mode-toggle:hover {
 }
 
 body.dark-mode .nav-logo {
-  color: var(--white);
-  filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+  color: #ffffff;
 }
 
 /* Mobile Menu Toggle */
