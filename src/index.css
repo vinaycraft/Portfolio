@@ -855,24 +855,6 @@ body.dark-mode .contact-submit-btn:hover:not(:disabled) {
   box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
 }
 
-.resume-download-btn:hover {
-  background: #C92A3A;
-  border-color: #C92A3A;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
-}
-
-.resume-download-btn:active {
-  transform: translateY(0);
-}
-
-body.dark-mode .resume-download-btn:hover {
-  background: #C92A3A;
-  border-color: #C92A3A;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
-}
-
 /* Experience Section */
 .experience-item {
   margin-bottom: var(--space-3xl);
