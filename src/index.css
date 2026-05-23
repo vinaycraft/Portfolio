@@ -409,23 +409,6 @@ nav {
   position: relative;
 }
 
-.section::before {
-  content: '';
-  position: absolute;
-  left: var(--space-3xl);
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: var(--border);
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .section::before {
-    display: block;
-  }
-}
-
 .section.visible {
   opacity: 1;
   transform: translateY(0);
