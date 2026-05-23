@@ -342,8 +342,8 @@ body.dark-mode .dark-mode-toggle:hover {
   margin-top: 0;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  padding: var(--space-4xl) var(--space-3xl) var(--space-3xl);
+  align-items: flex-end;
+  padding: var(--space-2xl) var(--space-3xl) 0;
   background: var(--white);
 }
 
@@ -365,6 +365,7 @@ body.dark-mode .hero {
   flex-direction: column;
   gap: var(--space-2xl);
   width: 45%;
+  align-self: end;
 }
 
 .vertical-text {
@@ -438,6 +439,7 @@ body.dark-mode .hero {
   align-items: flex-end;
   position: relative;
   width: 55%;
+  align-self: end;
 }
 
 .hero-image {
@@ -445,7 +447,8 @@ body.dark-mode .hero {
   max-width: 100%;
   height: 650px;
   border-radius: 0;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: bottom;
   border: none;
   background: transparent;
   filter: contrast(1.2) brightness(1.05);
@@ -1196,6 +1199,10 @@ body.dark-mode .hero {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .hero {
+    padding: var(--space-xl) var(--space-2xl) 0;
+  }
+
   .hero-container {
     flex-direction: column;
     gap: var(--space-2xl);
@@ -1203,12 +1210,14 @@ body.dark-mode .hero {
 
   .hero-left {
     width: 100%;
+    align-self: flex-start;
   }
 
   .hero-right {
     width: 100%;
     order: -1;
     justify-content: center;
+    align-self: center;
   }
 
   .hero-image {
@@ -1235,6 +1244,10 @@ body.dark-mode .hero {
 @media (max-width: 768px) {
   .mobile-menu-toggle {
     display: flex;
+  }
+
+  .hero {
+    padding: var(--space-lg) var(--space-xl) 0;
   }
 
   .hero-image {
