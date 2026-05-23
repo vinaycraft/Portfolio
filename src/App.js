@@ -242,15 +242,7 @@ const App = () => {
       )}
 
       <nav>
-        <div className="nav-logo">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 4L12 8H8V12L6 14L8 16V20H12L16 24L20 20H24V16L26 14L24 12V8H20L16 4Z" fill="currentColor"/>
-            <circle cx="12" cy="14" r="2" fill="#ffffff"/>
-            <circle cx="20" cy="14" r="2" fill="#ffffff"/>
-            <path d="M14 18C14 18 15 20 16 20C17 20 18 18 18 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M16 4L16 8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div className="nav-logo">VP</div>
         <button 
           className={`mobile-menu-toggle ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
