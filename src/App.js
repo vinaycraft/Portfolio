@@ -139,14 +139,16 @@ const App = () => {
       }
     };
 
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
     // Apply dark mode class on mount
     if (darkMode) {
       document.body.classList.add('dark-mode');
     }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [darkMode]);
 
   useEffect(() => {
     // Intersection Observer for scroll animations
