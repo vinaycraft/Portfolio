@@ -214,7 +214,7 @@ const App = () => {
     // Simulate form submission
     setTimeout(() => {
       setFormStatus('success');
-      setFormData({ name: '', email: '', message: });
+      setFormData({ name: '', email: '', message: '' });
       
       setTimeout(() => {
         setFormStatus('idle');
