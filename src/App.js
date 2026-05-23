@@ -265,11 +265,11 @@ const App = () => {
                 </div>
                 <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                   {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} style={{ 
+                    <span key={techIndex} className="mono" style={{ 
                       background: '#F8F8F8', 
                       padding: '0.4rem 0.8rem', 
                       borderRadius: '8px', 
-                      fontSize: '0.85rem',
+                      fontSize: '0.8rem',
                       color: '#222222',
                       fontWeight: '500'
                     }}>
