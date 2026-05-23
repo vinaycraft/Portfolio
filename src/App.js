@@ -6,8 +6,6 @@ const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   const skills = {
     'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
@@ -115,14 +113,8 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update scroll progress
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
-
       // Show/hide back to top button
-      setShowBackToTop(scrollTop > 500);
+      setShowBackToTop(window.scrollY > 500);
 
       // Update active section based on scroll position
       const sections = ['top', 'skills', 'projects', 'experience', 'education', 'contact'];
@@ -165,15 +157,6 @@ const App = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -198,16 +181,6 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* Loading Screen */}
-      {isLoading && (
-        <div className="loading-screen">
-          <div className="loading-spinner"></div>
-        </div>
-      )}
-
-      {/* Scroll Progress Bar */}
-      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
-
       {/* Back to Top Button */}
       {showBackToTop && (
         <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
@@ -265,10 +238,6 @@ const App = () => {
             />
           </div>
         </div>
-        <div className="scroll-indicator">
-          <span>Scroll down</span>
-          <span className="arrow">↓</span>
-        </div>
       </section>
 
       <div className="container">
@@ -309,15 +278,16 @@ const App = () => {
                 <div className="description">
                   {project.description}
                 </div>
-                <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem', padding: '0 2rem 2rem' }}>
                   {project.technologies.map((tech, techIndex) => (
                     <span key={techIndex} className="mono" style={{ 
-                      background: '#F8F8F8', 
+                      background: '#FFFFFF', 
                       padding: '0.4rem 0.8rem', 
-                      borderRadius: '8px', 
+                      borderRadius: '0', 
                       fontSize: '0.8rem',
-                      color: '#222222',
-                      fontWeight: '500'
+                      color: '#000000',
+                      fontWeight: '500',
+                      border: '1px solid #E5E5E5'
                     }}>
                       {tech}
                     </span>
