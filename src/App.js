@@ -4,56 +4,93 @@ import profileImage from './assets/profile.png';
 
 const App = () => {
   const skills = [
-    'C', 'C++', 'Java', 'Python', 'JavaScript', 'PHP',
-    'React.js', 'Node.js', 'Express.js', 'HTML', 'CSS',
-    'MySQL', 'REST APIs', 'Git', 'OpenCV', 'GPT', 'LangChain'
+    'JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP',
+    'React.js', 'HTML5', 'CSS3', 'Bootstrap',
+    'Node.js', 'Express.js', 'RESTful APIs',
+    'MySQL', 'Git', 'GitHub', 'VS Code',
+    'Cursor', 'Windsurf', 'Claude Code', 'LangChain', 'OpenCV'
   ];
 
   const projects = [
     {
       name: 'PersonaAI - Human Behavior Modeling System',
       date: 'Ongoing',
-      description: 'Developing an AI-based digital twin system capable of modeling human personality and behavior patterns. Implementing personality profiling using psychological models like MBTI and Big Five. Integrating vector embeddings to create long-term memory for AI interactions.',
-      technologies: ['GPT', 'LangChain', 'Vector Database', 'AI Conversation', 'Personality Analysis']
+      description: 'Architecting an AI-driven digital twin platform leveraging LangChain to model human personality frameworks and simulate dynamic behavioral patterns. Engineering an algorithmic profiling module that maps conversational inputs to psychological frameworks, including MBTI and the Big Five models. Implementing vector embeddings and semantic search to establish a long-term memory layer.',
+      technologies: ['Python', 'GPT', 'LangChain', 'ChromaDB', 'Pinecone', 'NLP']
     },
     {
       name: 'Stranger Meet - Anonymous Video Chat Platform',
       date: '2023-24',
-      description: 'Built an Omegle-style platform allowing anonymous communication between users. Developed a streak feature to increase user engagement and platform retention. Implemented college email verification system to restrict users based on institutional domains.',
-      technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL']
+      description: 'Developed a full-stack, real-time anonymous video streaming platform processing peer-to-peer communication with minimal latency. Built a secure institutional email verification gate using regex and custom token routing, restricting access strictly to authorized university domains. Engineered an engagement-focused retention system featuring user streaks and dynamic database counters.',
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'WebRTC', 'Socket.io']
     },
     {
       name: 'Central Order Management System',
       date: '2024-25',
-      description: 'Developed a centralized system to manage orders across multiple food court vendors. Implemented backend APIs for order processing, tracking, and status updates. Designed database schema for efficient storage and retrieval of order data.',
-      technologies: ['PHP', 'MySQL', 'REST APIs']
-    },
-    {
-      name: 'Instagram Auto Posting System',
-      date: '2023-24',
-      description: 'Developed a bot to automate Instagram post scheduling and publishing. Designed a system to store media data in spreadsheets and automatically upload posts at scheduled times. Reduced manual effort in content publishing through automation scripts.',
-      technologies: ['Python', 'Automation', 'Scheduling']
+      description: 'Designed and deployed a centralized multi-tenant order management system, streamlining concurrent transactional workflows across multiple food vendors. Constructed robust backend RESTful APIs for asynchronous order processing, live state updates, and real-time tracking. Optimized a relational MySQL schema with primary/foreign key indexing and normalization rules.',
+      technologies: ['PHP', 'MySQL', 'REST APIs', 'Bootstrap']
     },
     {
       name: 'Virtual Mouse Using Computer Vision',
       date: '2022-23',
-      description: 'Implemented a computer vision-based virtual mouse controlled by hand gestures. Used real-time webcam input to detect finger positions and convert them into cursor movements. Enabled actions like clicking and scrolling using gesture recognition.',
-      technologies: ['Python', 'OpenCV']
+      description: 'Built an AI-driven perceptual computing system that maps real-time human hand gestures to hardware cursor controls powered by a standard webcam input. Programmed mathematical coordinate mapping to smoothly translate detected finger coordinates into pixel-perfect screen pointer movements. Implemented algorithmic gesture recognition using custom frame-differencing logic.',
+      technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy']
     },
     {
-      name: 'AI Assistant',
+      name: 'Instagram Auto Posting System',
+      date: '2023-24',
+      description: 'Developed a Python automation script harnessing scheduling libraries and spreadsheet APIs to handle automated asset queues, reducing manual content overhead.',
+      technologies: ['Python', 'Automation', 'Scheduling']
+    },
+    {
+      name: 'AI Desktop Assistant',
       date: '2025-26',
-      description: 'Built a Python-based AI assistant capable of executing system commands and answering user queries. Integrated speech recognition and text processing for interactive communication. Automated tasks such as opening applications, searching the web, and retrieving information.',
+      description: 'Programmed a Python system assistant utilizing speech-to-text NLP libraries to interpret voice commands, automate local system scripts, and query external web APIs.',
       technologies: ['Python', 'NLP', 'Automation']
     }
   ];
 
-  const miniProjects = [
+  const experience = [
     {
-      name: 'Wedding Invitation Website',
-      date: '2025-26',
-      description: 'Built a responsive wedding invitation website with countdown timer and multimedia gallery. Integrated Google Maps for location navigation. Designed mobile-friendly UI to share event details with guests.',
-      technologies: ['JavaScript', 'HTML', 'CSS']
+      title: 'Programming Instructor / Lecturer',
+      company: 'Institution of Technical Education',
+      location: 'Pune, India',
+      period: '2025 -- 2026',
+      duration: '8 Months',
+      description: [
+        'Delivered comprehensive lectures and practical engineering labs on software fundamentals, full-stack web development, and object-oriented concepts.',
+        'Executed structured code reviews and debugging sessions for students, instilling industry-standard best practices for clean development and algorithmic efficiency.',
+        'Designed rigorous computer science curriculum, examination papers, and hands-on practical assignments focused on Python, SQL database schemas, and JavaScript application architecture.',
+        'Mentored aspiring software engineers through complex programmatic bugs, breaking down complex principles into actionable development workflows.'
+      ]
+    },
+    {
+      title: 'President -- Tech Innovation Club (TIC)',
+      company: 'Suman Ramesh Tulsiani Technical Campus',
+      location: 'Pune, India',
+      period: '2024 -- 2025',
+      duration: '',
+      description: [
+        'Managed and led a engineering organization of student developers to foster advanced programming, system design, and open-source contributions.',
+        'Spearheaded development workshops, coding bootcamps, and live hackathons centered around modern Web Development, RESTful APIs, and version control frameworks.',
+        'Provided peer mentorship to junior developers, establishing foundational competence in C, C++, Python, JavaScript, and object-oriented methodologies.',
+        'Orchestrated knowledge-sharing seminars by coordinating with faculty advisors, senior engineers, and industry guest speakers.'
+      ]
+    }
+  ];
+
+  const education = [
+    {
+      degree: 'Bachelor of Engineering (B.E.) -- Computer Engineering',
+      institution: 'Suman Ramesh Tulsiani Technical Campus, Kamshet (SPPU)',
+      period: 'Expected Graduation: 2026',
+      details: 'Entered directly into the second year of engineering based on academic merit in Diploma.'
+    },
+    {
+      degree: 'Diploma in Computer Science',
+      institution: 'DKTE Society\'s Yashwantrao Chavan Polytechnic, Ichalkaranji',
+      period: 'Graduated: 2023',
+      details: 'Aggregate Score: 8.1 CGPA | Core Focus: Practical Software Development, Operating Systems, OOP, and Data Structures.'
     }
   ];
 
@@ -72,7 +109,9 @@ const App = () => {
           <li><a href="#top" onClick={(e) => { e.preventDefault(); scrollToSection('top'); }}>Home</a></li>
           <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a></li>
           <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>Projects</a></li>
-          <li><a href="#github" onClick={(e) => { e.preventDefault(); scrollToSection('github'); }} className="nav-cta">Contact Me →</a></li>
+          <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>Experience</a></li>
+          <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>Education</a></li>
+          <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="nav-cta">Contact →</a></li>
         </ul>
       </nav>
 
@@ -93,7 +132,7 @@ const App = () => {
             <div className="hero-greeting">
               <h1>Hello</h1>
               <p className="subtitle">
-                It's Vinay Patil, a passionate full-stack developer and AI enthusiast with expertise in building innovative web applications and intelligent systems.
+                It's Vinay Patil, a performance-driven Software Developer with hands-on experience building full-stack web applications, intelligent automation scripts, and computer vision systems. Proficient in React.js, Node.js, Python, and MySQL.
               </p>
             </div>
           </div>
@@ -153,40 +192,65 @@ const App = () => {
           </div>
         </section>
 
-        <section className="section">
-          <h2>Mini Projects</h2>
-          <div className="projects-grid">
-            {miniProjects.map((project, index) => (
-              <div key={index} className="project-card">
-                <h3>{project.name}</h3>
-                <div className="date">{project.date}</div>
-                <div className="description">
-                  {project.description}
+        <section id="experience" className="section">
+          <h2>Experience</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+            {experience.map((exp, index) => (
+              <div key={index} style={{ borderBottom: index !== experience.length - 1 ? '1px solid #F8F8F8' : 'none', paddingBottom: index !== experience.length - 1 ? '2rem' : '0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.4rem', fontWeight: '600', color: '#222222', marginBottom: '0.5rem' }}>{exp.title}</h3>
+                    <p style={{ color: '#7B7B7B', fontSize: '1rem', marginBottom: '0.25rem' }}>{exp.company}</p>
+                    <p style={{ color: '#7B7B7B', fontSize: '0.9rem' }}>{exp.location}</p>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <p style={{ color: '#222222', fontWeight: '500', fontSize: '0.95rem' }}>{exp.period}</p>
+                    {exp.duration && <p style={{ color: '#7B7B7B', fontSize: '0.85rem' }}>{exp.duration}</p>}
+                  </div>
                 </div>
-                <div style={{ marginTop: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} style={{ 
-                      background: '#F8F8F8', 
-                      padding: '0.4rem 0.8rem', 
-                      borderRadius: '8px', 
-                      fontSize: '0.85rem',
-                      color: '#222222',
-                      fontWeight: '500'
-                    }}>
-                      {tech}
-                    </span>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                  {exp.description.map((desc, descIndex) => (
+                    <li key={descIndex} style={{ color: '#7B7B7B', lineHeight: '1.7', marginBottom: '0.5rem', paddingLeft: '1.2rem', position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: '0', color: '#222222' }}>•</span>
+                      {desc}
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="github" className="section github-section">
+        <section id="education" className="section">
+          <h2>Education</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            {education.map((edu, index) => (
+              <div key={index} style={{ borderBottom: index !== education.length - 1 ? '1px solid #F8F8F8' : 'none', paddingBottom: index !== education.length - 1 ? '2rem' : '0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '1rem' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.3rem', fontWeight: '600', color: '#222222', marginBottom: '0.5rem' }}>{edu.degree}</h3>
+                    <p style={{ color: '#7B7B7B', fontSize: '1rem', marginBottom: '0.25rem' }}>{edu.institution}</p>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <p style={{ color: '#222222', fontWeight: '500', fontSize: '0.95rem' }}>{edu.period}</p>
+                  </div>
+                </div>
+                <p style={{ color: '#7B7B7B', fontSize: '0.95rem', lineHeight: '1.6' }}>{edu.details}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="section github-section">
           <h2>Get In Touch</h2>
           <p style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem' }}>
             Feel free to reach out for collaborations, opportunities, or just to connect!
           </p>
+          <div style={{ marginBottom: '2rem', color: '#7B7B7B', fontSize: '1rem' }}>
+            <p style={{ marginBottom: '0.5rem' }}>📧 vinay100876@gmail.com</p>
+            <p style={{ marginBottom: '0.5rem' }}>📱 +91-7263060086</p>
+            <p>📍 Pune, Maharashtra, India</p>
+          </div>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a 
               href="https://github.com/vinaycraft" 
@@ -194,19 +258,29 @@ const App = () => {
               rel="noopener noreferrer"
               className="github-link"
             >
-              GitHub Profile
+              GitHub
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="github-link"
+            >
+              LinkedIn
+            </a>
+            <a 
+              href="https://leetcode.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="github-link"
+            >
+              LeetCode
             </a>
             <a 
               href="mailto:vinay100876@gmail.com" 
               className="github-link"
             >
-              Send Email
-            </a>
-            <a 
-              href="tel:+91-7263060086" 
-              className="github-link"
-            >
-              Call Me
+              Email
             </a>
           </div>
         </section>

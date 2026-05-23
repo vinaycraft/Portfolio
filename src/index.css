@@ -330,6 +330,101 @@ nav {
   transform: translateY(-2px);
 }
 
+/* Experience Section */
+.experience-item {
+  margin-bottom: 2rem;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.experience-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.experience-company {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.experience-location {
+  color: var(--secondary);
+  font-size: 0.9rem;
+}
+
+.experience-period {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.experience-description {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-description li {
+  color: var(--secondary);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.experience-description li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* Education Section */
+.education-item {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--tertiary);
+}
+
+.education-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.education-degree {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.education-institution {
+  color: var(--secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-period {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.education-details {
+  color: var(--secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .hero-container {
