@@ -24,6 +24,56 @@ body {
   scroll-behavior: smooth;
   line-height: 1.6;
   font-size: 16px;
+  position: relative;
+}
+
+/* Background Pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(34, 34, 34, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(123, 123, 123, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(34, 34, 34, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Loading Animation */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--tertiary);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 /* Typography Scale */
@@ -204,6 +254,26 @@ nav {
   align-items: center;
   gap: 0.5rem;
   transition: background 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-cta:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .nav-cta:hover {
@@ -320,6 +390,11 @@ nav {
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02) translateY(-5px);
 }
 
 .scroll-indicator {
@@ -601,11 +676,32 @@ nav {
   transition: all 0.3s;
   margin-top: 1rem;
   letter-spacing: -0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.github-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.github-link:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .github-link:hover {
   background: var(--secondary);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Experience Section */
@@ -773,6 +869,17 @@ nav {
   color: var(--white);
   padding: 4rem 3rem 2rem;
   margin-top: 4rem;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary), transparent);
 }
 
 .footer-content {
@@ -785,6 +892,12 @@ nav {
   gap: 2rem;
 }
 
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .footer-left h3 {
   font-size: 1.5rem;
   font-weight: 700;
@@ -795,6 +908,47 @@ nav {
 .footer-left p {
   color: var(--secondary);
   font-size: 0.95rem;
+}
+
+.download-resume-btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  letter-spacing: -0.3px;
+  border: 2px solid var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-resume-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(34, 34, 34, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.download-resume-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.download-resume-btn:hover {
+  background: transparent;
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .footer-right {
@@ -814,6 +968,22 @@ nav {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  position: relative;
+}
+
+.footer-social a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--white);
+  transition: width 0.3s ease;
+}
+
+.footer-social a:hover::after {
+  width: 100%;
 }
 
 .footer-social a:hover {

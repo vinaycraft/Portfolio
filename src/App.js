@@ -7,6 +7,7 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('top');
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const skills = {
     'Languages': ['JavaScript (ES6+)', 'Python', 'Java', 'C++', 'C', 'PHP'],
@@ -164,6 +165,15 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -188,6 +198,13 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* Loading Screen */}
+      {isLoading && (
+        <div className="loading-screen">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
+
       {/* Scroll Progress Bar */}
       <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
 
@@ -409,6 +426,13 @@ const App = () => {
             <div className="footer-left">
               <h3>Vinay Patil</h3>
               <p>Full Stack Developer & AI Enthusiast</p>
+              <a 
+                href="c:/Users/Admin/Desktop/Portfolio/Vinay_Patil_Soft_Dev.pdf" 
+                download="Vinay_Patil_Resume.pdf"
+                className="download-resume-btn"
+              >
+                Download Resume ↓
+              </a>
             </div>
             <div className="footer-right">
               <div className="footer-social">
